@@ -14,7 +14,7 @@ PARSER		= check.c \
 			parse.c \
 			utils.c
 
-SRCS			= $(addprefix src/, $(MAIN_SRC))\
+SRCS			= $(addprefix src/, $(MAIN_SRCS))\
 			$(addprefix src/parser/, $(PARSER))\
 			$(addprefix src/get_next_line/, $(GNL))
 
