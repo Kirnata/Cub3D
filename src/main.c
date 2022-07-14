@@ -1,14 +1,27 @@
-#include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
+/*   Updated: 2022/07/14 16:43:06 by ptopping         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "../inc/cub3D.h"
+
+int main(int argc, char **argv)
 {
-	//t_vars	*vars;
-	
-	if (argc == 2)// && check_params(argv[2]
-	{
-		//some parse
-		vars = draw_window(argc, argv);
-	}
-	print_help(ERR_FEW_ARGS);
-	return (0);
+	// if (argc < 2)
+	// 	printf("so stupid!!p2p\n");
+	// else if (argc == 2)
+	// {
+	// 	if (!is_cubfile(argv[1]))
+	// 		return (ft_error("not cub file ahahahaha\n"));
+	// 	// cub3d(argv[1]);
+	// }
+	printf("hui\n");
+	// parsing(argc, argv[1]);
 }

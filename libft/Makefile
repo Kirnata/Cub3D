@@ -72,8 +72,7 @@ RM = rm -f
 all:		$(NAME)
 
 $(NAME): 	$(OBJ)
-			ar rc $(NAME) $(OBJ)
-			ranlib $(NAME)
+			ar rcs $(NAME) $(OBJ)
 
 clean:
 			$(RM) $(OBJ) $(OBJ_BONUS)

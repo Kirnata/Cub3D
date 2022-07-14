@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:24:29 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/13 19:54:04 by bpono            ###   ########.fr       */
+/*   Updated: 2022/07/14 16:46:20 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "./includes/main.h"
-int ft_error(char *name)
-{
-	ft_putstr_fd(name,2);
-	return (1);
-}
+#include "cub3D.h"
+#include "libft.h"
+// int ft_error(char *name)
+// {
+// 	ft_putstr_fd(name,2);
+// 	return (1);
+// }

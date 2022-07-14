@@ -3,6 +3,7 @@
 
 # include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include "mlx.h"
 # include <math.h>
 
@@ -15,4 +16,4 @@ char	*ft_new_strdup(char *src);
 int		ft_error(char *name);
 int		is_cubfile(char *file);
 
-#endif CUB3D_H
+#endif
