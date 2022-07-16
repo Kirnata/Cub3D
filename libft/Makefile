@@ -72,8 +72,12 @@ RM = rm -f
 all:		$(NAME)
 
 $(NAME): 	$(OBJ)
+<<<<<<< HEAD
 			ar rc $(NAME) $(OBJ)
 			ranlib $(NAME)
+=======
+			ar rcs $(NAME) $(OBJ)
+>>>>>>> fa878af4573c9ae0556085fb5f66f348b2a390f7
 
 clean:
 			$(RM) $(OBJ) $(OBJ_BONUS)

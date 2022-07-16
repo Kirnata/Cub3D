@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:47:18 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/13 19:54:01 by bpono            ###   ########.fr       */
+/*   Updated: 2022/07/16 22:28:07 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/main.h"
+#include "cub3d.h"
 
 int		is_cubfile(char *file)
 {
@@ -18,12 +18,12 @@ int		is_cubfile(char *file)
 
 	i = ft_strlen(file) - 1;
 	if (file[i--] != 'b')
-		return (0);
+		return (ft_error("not cub file!!\n"));
 	if (file[i--] != 'u')
-		return (0);
+		return (ft_error("not cub file!!\n"));
 	if (file[i--] != 'c')
-		return (0);
+		return (ft_error("not cub file!!\n"));
 	if (file[i] != '.')
-		return (0);
+		return (ft_error("not cub file!!\n"));
 	return (1);
 }

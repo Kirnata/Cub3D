@@ -6,7 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:07:11 by ptopping          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/10/14 00:17:24 by ptopping         ###   ########.fr       */
+=======
+/*   Updated: 2022/07/14 16:49:35 by ptopping         ###   ########.fr       */
+>>>>>>> fa878af4573c9ae0556085fb5f66f348b2a390f7
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +22,12 @@ size_t	ft_strlen(const char *str)
 
 	i = 0;
 	while (str[i])
+<<<<<<< HEAD
 	{
 		i++;
 	}
+=======
+		i++;
+>>>>>>> fa878af4573c9ae0556085fb5f66f348b2a390f7
 	return (i);
 }

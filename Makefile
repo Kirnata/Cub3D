@@ -1,10 +1,22 @@
-NAME = cub3d
+NAME = cub3D
 
 MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
 
-SRCS		= 
+MAIN_SRCS	= main.c
+
+GNL			= get_next_line.c\
+			get_next_line_utils.c
+
+PARSER		= check.c \
+			error.c \
+			parse.c \
+			utils.c
+
+SRCS			= $(addprefix src/, $(MAIN_SRCS))\
+			$(addprefix src/parser/, $(PARSER))\
+			$(addprefix src/get_next_line/, $(GNL))
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -12,17 +24,13 @@ OBJ_D		= $(SRCS:.c=.d)
 
 CC			= cc
 
-FLAGS		= -pthread -Wall -Wextra -Werror -O3 -MMD
+CFLAGS		= -Wall -Wextra -Werror -g -MMD -I inc -I libft -I
 
-LIBC		= ar rc
-
-LIBR		= ranlib
+MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
 LIBFT		= libft/libft.a
 
-GNL			= 
-
-RM			= rm -f
+RM			= rm -rf
 
 RED			= \x1b[31m
 RESET		= \x1b[0m
@@ -33,11 +41,11 @@ $(NAME):	$(OBJS) $(MLX)
 			@make bonus -C libft
 			@echo "$(RED)Generating object files $(RESET)"
 			@echo "$(BLUE)Compiling and linking binary file $(RESET)"
-			$(CC) $(FLAGS) $(OBJS) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+			$(CC) $(СFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 			@echo "$(GREEN)IT IS FINALLY GENERATED (to use it run $(RED)./$(NAME)$(GREEN)) $(RESET)"
 
 %.o: %.c
-	$(CC) $(FLAGS) -I includes -I libft -I mlx -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) mlx -c $< -o $(<:.c=.o)
 
 $(MLX):		$(MLX_H)
 			./build_mlx.sh
@@ -57,4 +65,4 @@ re: 		fclean all
 
 .PHONY: 	all clean fclean re bonus
 
--include $(OBJ_D)
+-include $(wildcard $(OBJ_D))
