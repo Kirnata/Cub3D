@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/16 21:20:52 by ptopping         ###   ########.fr       */
+/*   Created: 2022/07/16 21:44:17 by ptopping          #+#    #+#             */
+/*   Updated: 2022/07/16 21:44:42 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3D.h"
+#include "cub3D.h"
+#include "libft.h"
 
-int main(void)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	void *mlx = NULL;
-	void *win = NULL;
-	int x = 100;
-	int y = 100;
+	char	*dst;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, WIDTH, HEIGHT, "test");
-	while (y++ < 200) {
-		x = 100;
-		while (x++ < 200)
-			mlx_pixel_put(mlx, win, x, y, 0xFFFFF);
-	}
-	mlx_loop(mlx);
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
