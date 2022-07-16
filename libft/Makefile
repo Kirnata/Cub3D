@@ -73,6 +73,8 @@ all:		$(NAME)
 
 $(NAME): 	$(OBJ)
 			ar rcs $(NAME) $(OBJ)
+			ar rc $(NAME) $(OBJ)
+			ranlib $(NAME)
 
 clean:
 			$(RM) $(OBJ) $(OBJ_BONUS)

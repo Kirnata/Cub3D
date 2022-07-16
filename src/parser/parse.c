@@ -6,13 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/14 17:09:03 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:40:12 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
-#include "libft.h"
-#include "get_next_line.h"
+#include "cub3d.h"
 
 // int map_size(int f1)
 // {

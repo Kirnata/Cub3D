@@ -6,12 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 17:23:09 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/14 17:09:05 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:35:21 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
-#include "libft.h"
+#include "cub3d.h"
 
 // char	*ft_new_strdup(char *src)
 // {

@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 00:17:26 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/14 16:49:57 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:40:04 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	reading(char **stat_line, int fd)
 		if (byte_was_read == 0)
 			return (0);
 		buff[byte_was_read] = '\0';
-		*stat_line = ft_strjoin(*stat_line, buff);
+		*stat_line = ft_strjoin_gnl(*stat_line, buff);
 		if (!*stat_line)
 			return (-1);
 	}
