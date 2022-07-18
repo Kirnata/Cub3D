@@ -32,26 +32,10 @@ typedef struct s_textr {
 
 }				t_textr;
 
-//для mlx
-typedef struct s_mlx_data {
-
-}				t_mlx_data;
-
 //координаты игрока и тд и тп
 typedef struct s_player {
 
 }				t_player;
-
-typedef struct s_data {
-	t_mlx_data *mlx_data;
-	char **map;
-}				t_data;
-
-//super+pussy_parser
-void	parsing(char **map);
-char	*ft_new_strdup(char *src);
-int		ft_error(char *name);
-int		is_cubfile(char *file);
 
 typedef struct t_parser
 {
@@ -62,9 +46,22 @@ typedef struct t_parser
 	char	*floor;
 	char	*ceilling;
 } s_parser;
-typedef struct s_data
-{
-	char **map;
-} t_data;
 
+typedef struct s_data {
+	void *mlx;
+	void *win;
+	t_textr *textr;
+	t_img	*image;
+	char **map;
+}				t_data;
+
+//super+pussy_parser
+void	parsing(char **map);
+char	*ft_new_strdup(char *src);
+int		ft_error(char *name);
+int		is_cubfile(char *file);
+
+
+//ray_cast_srcs
+void *init_game_data(t_data *data);
 #endif

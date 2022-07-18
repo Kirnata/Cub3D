@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/16 22:35:33 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:13:08 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
+#include "cub3d.h"
 
 char	**make_map(t_list **head,int size)
 {
@@ -130,4 +130,8 @@ int main(int ac,char **av)
 		printf("%s",data.map[i]);
 		i++;
 	}
+	init_game_data(&data);
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "Cub3D");
+	mlx_loop(data.mlx);
 }
