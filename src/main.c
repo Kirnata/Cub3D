@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/18 17:13:08 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:12:25 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3D.h"
 
 char	**make_map(t_list **head,int size)
 {
@@ -113,25 +113,31 @@ char **parsing_map(char **map)
 	// printf("%d\n",num_lines);
 	return(new_map);
 }
-int main(int ac,char **av)
+int main(int ac, char **av)
 {
 	char **cub_file;
-	t_data data;
-	int i = 0;
+	t_data *data;
+	//int i = 0;
 
 	cub_file = NULL;
 	if (ac < 2)
 		ft_error("so stupid!!no cub file\n");
 	else if (ac == 2 && is_cubfile(av[1]))
 		cub_file = cub3d(av[1]);
-	data.map = parsing_map(cub_file);
-	while (data.map[i])
-	{
-		printf("%s",data.map[i]);
-		i++;
-	}
-	init_game_data(&data);
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "Cub3D");
-	mlx_loop(data.mlx);
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		ft_error("malloc error");
+	data->map = calloc(1, sizeof(char *));
+	data->map = parsing_map(cub_file);
+	// int i = 0;
+	// while (data->map[0][i])
+	// {
+	// 	printf("%c",data->map[0][i]);
+	// 	i++;
+	// }
+	// exit(0);
+	create_game(data);
+	//mlx_hook(data->win, ON_DESTROY, 1L << 13, key_press, data);
+	mlx_hook(data->win, ON_DESTROY, 1L << 13, destroy, data);
+	mlx_loop(data->mlx);
 }

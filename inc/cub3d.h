@@ -16,6 +16,15 @@
 # define WIDTH 640
 # define HEIGHT 480
 
+# define ON_DESTROY 17
+
+# define MAP_SCALE 15
+
+typedef struct s_point {
+	int x;
+	int y;
+}			t_point;
+
 //для конкретного изображения
 typedef struct s_img {
 	void	*img;
@@ -34,7 +43,9 @@ typedef struct s_textr {
 
 //координаты игрока и тд и тп
 typedef struct s_player {
-
+	int x;
+	int y;
+	int dir;
 }				t_player;
 
 typedef struct t_parser
@@ -52,6 +63,7 @@ typedef struct s_data {
 	void *win;
 	t_textr *textr;
 	t_img	*image;
+	t_player *player;
 	char **map;
 }				t_data;
 
@@ -63,5 +75,11 @@ int		is_cubfile(char *file);
 
 
 //ray_cast_srcs
-void *init_game_data(t_data *data);
+void create_game(t_data *data);
+int	destroy(t_data *data);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+//int	key_press(t_data *data);
+//void	init_player_data(t_data *data);
+void draw_screen(t_data *data);
+void	scale_print(int x, int y, int colour);
 #endif

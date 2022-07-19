@@ -5,8 +5,8 @@ MLX			= libmlx.dylib
 MLX_H		= ./mlx/mlx.h
 
 MAIN_SRCS	= main.c \
-			src/ray_cast_srcs/init_game_data.c \
-			src/ray_cast_srcs/my_mlx_pixel_put.c
+			ray_cast_srcs/create_game.c \
+			ray_cast_srcs/my_mlx_pixel_put.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
