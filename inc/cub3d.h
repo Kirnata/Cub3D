@@ -8,6 +8,8 @@
 # include <math.h>
 #include "get_next_line.h"
 #include "../libft/libft.h"
+// #include <X11/X.h>
+// #include <X11/keysym.h>
 //open
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -15,6 +17,19 @@
 
 # define WIDTH 640
 # define HEIGHT 480
+
+# define ESC 53
+
+#define W 13
+#define S 1
+#define A 0
+#define D 2
+
+# define KEY_RIGHT 124
+# define KEY_LEFT 123
+
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 # define ON_DESTROY 17
 
@@ -78,8 +93,9 @@ int		is_cubfile(char *file);
 void create_game(t_data *data);
 int	destroy(t_data *data);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-//int	key_press(t_data *data);
-//void	init_player_data(t_data *data);
+int	key_press(int key, t_data *data);
+void	init_player_data(t_data *data);
 void draw_screen(t_data *data);
-void	scale_print(int x, int y, int colour);
+void	ft_draw_player(t_data *data);
+void	scale_print(t_img *image, int x, int y, int color);
 #endif

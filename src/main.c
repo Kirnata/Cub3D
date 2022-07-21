@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/19 16:12:25 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:11:25 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,15 +129,15 @@ int main(int ac, char **av)
 		ft_error("malloc error");
 	data->map = calloc(1, sizeof(char *));
 	data->map = parsing_map(cub_file);
-	// int i = 0;
-	// while (data->map[0][i])
-	// {
-	// 	printf("%c",data->map[0][i]);
-	// 	i++;
-	// }
-	// exit(0);
+	int i = 0;
+	while (data->map[i])
+	{
+		printf("%s",data->map[i]);
+		i++;
+	}
 	create_game(data);
-	//mlx_hook(data->win, ON_DESTROY, 1L << 13, key_press, data);
-	mlx_hook(data->win, ON_DESTROY, 1L << 13, destroy, data);
+	draw_screen(data);
+	mlx_hook(data->win, 2, 1L << 0, key_press, data);
+	mlx_hook(data->win, ON_DESTROY, 1L << 17, destroy, data);
 	mlx_loop(data->mlx);
 }

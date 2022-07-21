@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 21:44:17 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/19 14:28:46 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:25:20 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ void	my_mlx_pixel_put(t_img *image, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	destroy(t_data *data)
-{
-	mlx_destroy_window(data->mlx, data->win);
-	exit (0);
-}
-
-// int	key_press(t_data *data)
-// {
-		
-// }
