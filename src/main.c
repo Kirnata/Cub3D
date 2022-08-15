@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/21 14:11:25 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/08/15 21:05:49 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,9 @@ int main(int ac, char **av)
 		printf("%s",data->map[i]);
 		i++;
 	}
-	create_game(data);
-	draw_screen(data);
+	start_game(data)
+	//create_game(data);2d rubbish
+	//draw_screen(data);2d rubbish
 	mlx_hook(data->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->win, ON_DESTROY, 1L << 17, destroy, data);
 	mlx_loop(data->mlx);

@@ -11,30 +11,30 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//КАКАЯ-ТО ДИЧЬ, СЕЙЧАС НЕ ХОУ РАЗБИРАТЬСЯ
+// void	*ft_memmove(void *dest, const void *source, size_t size)
+// {
+// 	size_t	i;
 
-void	*ft_memmove(void *dest, const void *source, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	if (!dest && !source)
-		return (0);
-	if (dest > source)
-	{	
-		i = size - 1;
-		while (i >= 0 && i < size)
-		{
-			*(unsigned char *)(dest + i) = *(unsigned char *)(source + i);
-			i--;
-		}	
-	}
-	else
-	{
-		while (i < size)
-		{
-			*(unsigned char *)(dest + i) = *(unsigned char *)(source + i);
-			i++;
-		}
-	}
-	return (dest);
-}
+// 	i = 0;
+// 	if (!dest && !source)
+// 		return (0);
+// 	if (dest > source)
+// 	{	
+// 		i = size - 1;
+// 		while (i >= 0 && i < size)
+// 		{
+// 			*(unsigned char *)(dest + i) = *(unsigned char *)(source + i);
+// 			i--;
+// 		}	
+// 	}
+// 	else
+// 	{
+// 		while (i < size)
+// 		{
+// 			*(unsigned char *)(dest + i) = *(unsigned char *)(source + i);
+// 			i++;
+// 		}
+// 	}
+// 	return (dest);
+// }
