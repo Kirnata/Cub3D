@@ -3,75 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/16 22:28:42 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:11:36 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// int map_size(int f1)
-// {
-// 	int		i;
-// 	char	*str;
+//вернет NULL в случае пиздеца 
+char	**parsing(char **map, t_parser *parser)
+{
+	char	**new_map;
+	int		l;
 
-// 	i = 0;
-// 	str = get_next_line(f1);
-// 	while (str)
-// 	{
-// 		i++;
-// 		free(str);
-// 		str = get_next_line(f1);
-// 	}
-// 	return (i);
-// }
-// void free_map(char **map)
-// {
-// 	int i;
+	l = check_textures(map, parser);
+	// new_map = NULL;
+	l = check_colours(map, parser);
+	if (l == 1)
+		ft_error("colours problems\n");
+	new_map = check_map(map);
+	if (!new_map)
+		ft_error("map problems\n");
+	return (new_map);
+}
 
-// 	i = 0;
-// 	while(map[i])
-// 	{
-// 		free(map[i]);
-// 		i++;
-// 	}
-// 	free(map);
-// }
-// int parsing(int c, char *file_name)
-// {
-// 	int f1;
-// 	char **map;
-// 	int i;
-// 	int k;
-// 	char *new;
-	
-// 	f1 = open(file_name, 0);
-// 	if (f1 < 0)
-// 		return (0);
-// 	i = map_size(f1);
-// 	map =(char **)malloc(sizeof(char *) * (i + 1));
-// 	close(f1);
-// 	f1 = open(file_name, 0);
-// 	if (f1 < 0)
-// 		return (0);
-// 	k = 0;
-// 	new = NULL;
-// 	while(k < i)
-// 	{
-// 		new = get_next_line(f1);
-// 		map[k] = ft_new_strdup(new);
-// 		free(new);
-// 		k++;
-// 	}
-// 	map[k] = NULL;
-// 	k = 0;
-// 	while (map[k])
-// 	{
-// 		printf("%s",map[k]);
-// 		k++;
-// 	}
-// 	free_map(map);
-// 	return (0);
-// }
+char	**make_map(t_list *head, int size)
+{
+	char	**map;
+	int		i;
+
+	map = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!map)
+		ft_error("malloc problems");
+	i = -1;
+	while (head != NULL)
+	{
+		map[++i] = head->content;
+		head = head->next;
+	}
+	return (map);
+}
+
+char	**get_file(char *map_name)
+{
+	int			fd;
+	char		*line;
+	t_list		*head;
+	char		**map;
+
+	head = NULL;
+	line = NULL;
+	fd = open(map_name, O_RDONLY);
+	if (fd <= 0)
+	{
+		ft_putstr_fd("problems with file stupid dick\n", 2);
+		exit(1);
+	}
+	line = get_next_line(fd);
+	while (line)
+	{
+		ft_lstadd_back(&head, ft_lstnew(line));
+		line = get_next_line(fd);
+	}
+	map = make_map(head, ft_lstsize(head));
+	ft_lstclear(&head, NULL);
+	return (map);
+}

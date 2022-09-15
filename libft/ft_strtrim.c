@@ -55,13 +55,13 @@ static char	*all_check(char const *s1, char const *set, int end)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		begin;
+	// int		begin;
 	int		end;
-	int		i;
+	// int		i;
 
-	begin = 0;
+	// begin = 0;
 	end = 0;
-	i = 0;
+	// i = 0;
 	if (!set)
 		return (ft_strdup(s1));
 	else

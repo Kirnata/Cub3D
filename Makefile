@@ -3,6 +3,7 @@ NAME = cub3D
 MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
+MAIN_SRCS = main1.c
 
 MAIN_SRCS	= main.c
 
@@ -12,7 +13,13 @@ GNL			= get_next_line.c\
 PARSER		= check.c \
 			error.c \
 			parse.c \
-			utils.c
+			map.c \
+			map2.c \
+			textures.c \
+			textures2.c \
+			colours.c \
+			check_probel_map.c \
+			colours2.c
 
 SRCS			= $(addprefix src/, $(MAIN_SRCS))\
 			$(addprefix src/parser/, $(PARSER))\
@@ -24,7 +31,8 @@ OBJ_D		= $(SRCS:.c=.d)
 
 CC			= cc
 
-CFLAGS		= -Wall -Wextra -Werror -g -MMD -I inc -I libft -I
+#-g -Wall -Wextra -Werror
+CFLAGS		=  -MMD -I inc -I libft -I -g
 
 MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
@@ -55,7 +63,6 @@ all:		$(NAME)
 clean:
 			@$(RM) $(OBJ_D) $(OBJS)
 			make clean -C libft
-
 
 fclean: clean
 			@$(RM) $(NAME)
