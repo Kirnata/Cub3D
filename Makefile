@@ -4,10 +4,10 @@ MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
 
-MAIN_SRCS	= main.c \
-			ray_cast_srcs/create_game.c \
-			ray_cast_srcs/my_mlx_pixel_put.c \
-			ray_cast_srcs/hooks.c
+CUB			= start_game.c \
+			# ray_cast_srcs/create_game.c \
+			# ray_cast_srcs/my_mlx_pixel_put.c \
+			# ray_cast_srcs/hooks.c
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
@@ -17,9 +17,10 @@ PARSER		= check.c \
 			parse.c \
 			utils.c
 
-SRCS			= $(addprefix src/, $(MAIN_SRCS))\
+SRCS		= $(addprefix src/, $(CUB))\
 			$(addprefix src/parser/, $(PARSER))\
-			$(addprefix src/get_next_line/, $(GNL))
+			$(addprefix src/get_next_line/, $(GNL))\
+			src/main.c
 
 OBJS		= $(SRCS:.c=.o)
 

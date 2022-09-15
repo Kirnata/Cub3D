@@ -35,10 +35,10 @@
 
 # define MAP_SCALE 15
 
-typedef struct s_point {
-	double x;
-	double y;
-}			t_point;
+// typedef struct s_point {
+// 	double x;
+// 	double y;
+// }			t_point;
 
 //для конкретного изображения
 typedef struct s_img {
@@ -47,24 +47,26 @@ typedef struct s_img {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	int		img_width;
-	int		img_height;
 }				t_img;
 
 //структурка для текстурок
 typedef struct s_textr {
-
+//очень много штук для текстурок
 }				t_textr;
 
 //координаты игрока и тд и тп
-typedef struct s_player {
-	t_point pos;//x and y start position
-	t_point dir;//initial direction vector
-	t_point plane;//the 2d raycaster version of camera plane
-	t_point plane;
-	double time;//time of current frame
-	double oldTime;//time of previous frame
-}				t_player;
+// typedef struct s_player {
+// 	t_point pos;//x and y start position
+// 	t_point dir;//initial direction vector
+// 	t_point plane;//the 2d raycaster version of camera plane
+// 	t_point plane;
+// 	double time;//time of current frame
+// 	double oldTime;//time of previous frame
+// }				t_player;
+
+typedef struct	s_game {
+//много много всякой хуйни
+}				t_game;
 
 typedef struct t_parser
 {
@@ -79,10 +81,15 @@ typedef struct t_parser
 typedef struct s_data {
 	void *mlx;
 	void *win;
-	t_textr *textr;
+	int		img_width;
+	int		img_height;
 	t_img	*image;
-	t_player *player;
+	t_game *game;
 	char **map;
+	t_textures	*north;
+	t_textures	*south;
+	t_textures	*west;
+	t_textures	*east;
 }				t_data;
 
 //super+pussy_parser
@@ -94,15 +101,15 @@ int		is_cubfile(char *file);
 
 //ray_cast_srcs
 // void create_game(t_data *data);
-int	destroy(t_data *data);
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+// int	destroy(t_data *data);
+// void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 // int	key_press(int key, t_data *data);
 // void	init_player_data(t_data *data);
 //void draw_screen(t_data *data);
 // void	ft_draw_player(t_data *data);
 // void	scale_print(t_img *image, int x, int y, int color);
-void start_game(t_data *data);
-void game_init(t_data *data);
-void player_init(t_data *data);
-void	check_player(char c, int fl);
+// void start_game(t_data *data);
+// void game_init(t_data *data);
+// void player_init(t_data *data);
+// void	check_player(char c, int fl);
 #endif
