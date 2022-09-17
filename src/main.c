@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/15 20:39:48 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/17 18:14:40 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,5 @@ int main(int ac, char **av)
 		i++;
 	}
 	start_game(data)
-	ft_final_cleaner(data);
+	//ft_final_cleaner(data);
 }

@@ -35,10 +35,13 @@
 
 # define MAP_SCALE 15
 
-// typedef struct s_point {
-// 	double x;
-// 	double y;
-// }			t_point;
+#define ROTATE_SPEED 0.05
+#define MOVE_SPEED 0.1
+
+typedef struct	s_point {
+	double x;
+	double y;
+}				t_point;
 
 //для конкретного изображения
 typedef struct s_img {
@@ -66,6 +69,31 @@ typedef struct s_textr {
 
 typedef struct	s_game {
 //много много всякой хуйни
+	t_point	pos;//вектор позиции игрока
+	t_point	dir;//направление игрока
+	t_point	plane;//плоскость камеры игрока(д.б. перпендикулярна dir)
+	t_point	camera;//коорд  в прост кам
+	t_point	rayDir;
+	t_point	deltaDist;// длина луча от одной стор  до след стор
+	int		mapX;// в какой мы клеточке
+	int		mapY;
+	t_point	sideDist;//расст кот луч долж пройти от нач позиции до первой стор
+	double	perpWallDist;
+	int		stepX;//в каком направлении делать шаг по оси x (либо +1, либо -1)
+	int		stepY;//в каком направлении делать шаг по оси y (либо +1, либо -1)
+	int		hit;
+	int		side;
+	int		lineHeight;
+	int		drawStart;
+	int		drawEnd;
+	// double		rotSpeed;
+	// double		moveSpeed;
+	double			wall_x; // в какое место мы ударились
+	double			step; // Насколько увеличить координату текстуры на пиксель экрана
+
+
+
+
 }				t_game;
 
 typedef struct t_parser
@@ -78,6 +106,10 @@ typedef struct t_parser
 	char	*ceilling;
 } s_parser;
 
+typedef struct s_keys {
+	//разные штучччччки
+}
+
 typedef struct s_data {
 	void *mlx;
 	void *win;
@@ -86,6 +118,7 @@ typedef struct s_data {
 	t_img	*image;
 	t_game *game;
 	char **map;
+	t_key		*keys;
 	t_textures	*north;
 	t_textures	*south;
 	t_textures	*west;
@@ -112,4 +145,8 @@ int		is_cubfile(char *file);
 // void game_init(t_data *data);
 // void player_init(t_data *data);
 // void	check_player(char c, int fl);
+int start_game(t_data *data);
+int init_game(t_data *data);
+int render(t_data *data);
+int draw_lines(t_data *data);
 #endif
