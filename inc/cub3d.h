@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/15 17:07:53 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/20 14:37:45 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,22 @@
 # define HEIGHT 1080
 # define MAP_INSIDE "0NSEW"
 
+typedef struct s_player
+{
+	char	name;
+	int		x;
+	int		y;
+}	t_player;
+
 typedef struct s_parser
 {
-	char	*north;
-	char	*south;
-	char	*west;
-	char	*east;
-	int		floor;
-	int		ceilling;
+	char		*north;
+	char		*south;
+	char		*west;
+	char		*east;
+	int			floor;
+	int			ceilling;
+	t_player	player;
 }	t_parser;
 
 typedef struct s_colour
@@ -46,6 +54,7 @@ typedef struct s_colour
 	int	g;
 	int	b;
 }	t_colour;
+
 
 typedef struct s_dick
 {
@@ -68,7 +77,7 @@ void	put_numbers(t_colour *colour, t_parser *parser, char name);
 int		check_textures(char **map, t_parser *parser);
 int		save_textures(char **map, t_parser *parser);
 int		check_open_textures(t_parser *parser);
-char	**check_map(char **content);
+char	**check_map(char **content, t_parser *parser);
 int		check_probel(char **s, int len);
 int		check_last(char **new_map, int len);
 int		ft_get_len(int start, char **list);

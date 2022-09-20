@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/15 17:07:30 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/20 15:16:41 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	else if (ac == 2 && is_cubfile(av[1]))
 		cub_file = get_file(av[1]);
 	new_map = parsing(cub_file, &parser);
+	printf("%c\n", parser.player.name);
 	if (new_map)
 	{
 		i = 0;

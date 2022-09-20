@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/14 22:11:36 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/20 13:40:54 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**parsing(char **map, t_parser *parser)
 	l = check_colours(map, parser);
 	if (l == 1)
 		ft_error("colours problems\n");
-	new_map = check_map(map);
+	new_map = check_map(map, parser);
 	if (!new_map)
 		ft_error("map problems\n");
 	return (new_map);

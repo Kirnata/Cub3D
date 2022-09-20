@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 19:28:16 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/14 22:21:51 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/20 15:16:35 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,34 @@ int	check_odin(char **s, int k)
 	return (t);
 }
 
-char	**check_map(char **content)
+int	check_player(char **map, int len, t_parser *parser)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'\
+			|| map[i][j] == 'E')
+			{
+				parser->player.name = map[i][j];
+				parser->player.x = j;
+				parser->player.y = i;
+				count++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+char	**check_map(char **content, t_parser *parser)
 {
 	int		start;
 	char	**new_map;
@@ -117,7 +144,8 @@ char	**check_map(char **content)
 		return (NULL);
 	len = ft_get_len(0, new_map);
 	if (check_symbols(new_map) == 1 || check_last(new_map, len - 1) == 1 \
-	|| check_odin(new_map, len) != len || check_probel(new_map, len) == 1)
+	|| check_odin(new_map, len) != len || check_probel(new_map, len) == 1 \
+	|| check_player(new_map, len, parser) != 1)
 	{
 		i = 0;
 		while (new_map[i])
