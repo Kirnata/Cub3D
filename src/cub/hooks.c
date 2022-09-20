@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 14:08:16 by ptopping          #+#    #+#             */
-/*   Updated: 2022/07/21 14:56:39 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/20 22:41:31 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 int	destroy(t_data *data)
 {

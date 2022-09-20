@@ -4,9 +4,9 @@ MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
 
-CUB			= start_game.c \
-			# ray_cast_srcs/create_game.c \
-			# ray_cast_srcs/my_mlx_pixel_put.c \
+CUB			= cub/start_game.c \
+			cub/my_mlx_pixel_put.c \
+			cub/render.c \
 			# ray_cast_srcs/hooks.c
 
 GNL			= get_next_line.c\

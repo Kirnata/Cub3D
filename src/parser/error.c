@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:24:29 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/19 12:47:42 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/20 22:41:40 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 int ft_error(char *name)
 {
 	ft_putstr_fd(name,2);

@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 19:47:18 by bpono             #+#    #+#             */
-/*   Updated: 2022/07/19 12:49:08 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/20 22:40:34 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 int		is_cubfile(char *file)
 {

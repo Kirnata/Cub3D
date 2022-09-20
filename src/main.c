@@ -6,11 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/17 18:14:40 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/20 23:23:31 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 char	**make_map(t_list **head,int size)
 {
@@ -135,6 +135,6 @@ int main(int ac, char **av)
 		printf("%s",data->map[i]);
 		i++;
 	}
-	start_game(data)
+	start_game(data);
 	//ft_final_cleaner(data);
 }

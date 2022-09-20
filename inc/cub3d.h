@@ -53,9 +53,9 @@ typedef struct s_img {
 }				t_img;
 
 //структурка для текстурок
-typedef struct s_textr {
-//очень много штук для текстурок
-}				t_textr;
+// typedef struct s_textr {
+// //очень много штук для текстурок
+// }				t_textr;
 
 //координаты игрока и тд и тп
 // typedef struct s_player {
@@ -78,7 +78,7 @@ typedef struct	s_game {
 	int		mapX;// в какой мы клеточке
 	int		mapY;
 	t_point	sideDist;//расст кот луч долж пройти от нач позиции до первой стор
-	double	perpWallDist;
+	double	perpWallDist;//длина перпендикуляра к стене от камеры
 	int		stepX;//в каком направлении делать шаг по оси x (либо +1, либо -1)
 	int		stepY;//в каком направлении делать шаг по оси y (либо +1, либо -1)
 	int		hit;
@@ -90,10 +90,6 @@ typedef struct	s_game {
 	// double		moveSpeed;
 	double			wall_x; // в какое место мы ударились
 	double			step; // Насколько увеличить координату текстуры на пиксель экрана
-
-
-
-
 }				t_game;
 
 typedef struct t_parser
@@ -106,23 +102,23 @@ typedef struct t_parser
 	char	*ceilling;
 } s_parser;
 
-typedef struct s_keys {
-	//разные штучччччки
-}
+// typedef struct s_keys {
+// 	//разные штучччччки
+// }
 
 typedef struct s_data {
 	void *mlx;
 	void *win;
 	int		img_width;
 	int		img_height;
-	t_img	*image;
+	t_img	*img;
 	t_game *game;
 	char **map;
-	t_key		*keys;
-	t_textures	*north;
-	t_textures	*south;
-	t_textures	*west;
-	t_textures	*east;
+	//t_key		*keys;
+	// t_textures	*north;
+	// t_textures	*south;
+	// t_textures	*west;
+	// t_textures	*east;
 }				t_data;
 
 //super+pussy_parser
@@ -147,6 +143,11 @@ int		is_cubfile(char *file);
 // void	check_player(char c, int fl);
 int start_game(t_data *data);
 int init_game(t_data *data);
-int render(t_data *data);
-int draw_lines(t_data *data);
+//int render(t_data *data);
+int draw_image(t_data *data);
+int ft_steps(t_data *data, int x);
+int dda(t_data *data);
+int create_line(t_data *data, int x);
+int draw_line(t_data *data, int x);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 #endif
