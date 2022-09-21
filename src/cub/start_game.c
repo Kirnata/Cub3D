@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:46:16 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/21 15:54:53 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:13:23 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int init_game(t_data *data)
 
 int start_game(t_data *data)
 {
-	
-    
     if (!(data->game = (t_game *)malloc(sizeof(t_game))))
         ft_error("fatal error: malloc\n");
     if (!(data->img = (t_img *)malloc(sizeof(t_img))))

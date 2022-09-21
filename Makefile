@@ -15,7 +15,13 @@ GNL			= get_next_line.c\
 PARSER		= check.c \
 			error.c \
 			parse.c \
-			utils.c
+			map.c \
+			map2.c \
+			textures.c \
+			textures2.c \
+			colours.c \
+			check_probel_map.c \
+			colours2.c
 
 SRCS		= $(addprefix src/, $(CUB))\
 			$(addprefix src/parser/, $(PARSER))\
@@ -26,9 +32,10 @@ OBJS		= $(SRCS:.c=.o)
 
 OBJ_D		= $(SRCS:.c=.d)
 
-CC			= cc
+CC			= gcc
 
-CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -I inc -I libft -I
+#-Wall -Wextra -Werror
+CFLAGS		=  -O2 -MMD -I inc -I libft -I
 
 MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
@@ -59,7 +66,6 @@ all:		$(NAME)
 clean:
 			@$(RM) $(OBJ_D) $(OBJS)
 			make clean -C libft
-
 
 fclean: clean
 			@$(RM) $(NAME)

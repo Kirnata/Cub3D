@@ -44,6 +44,7 @@ SRC =  		 ft_atoi.c\
 			ft_lstmap.c\
 			ft_strlcat.c\
 			ft_strlcpy.c\
+			ft_strcmp.c
 
 BONUS = 	ft_lstnew.c\
 			ft_lstadd_front.c\
@@ -62,7 +63,7 @@ OBJ_BONUS = $(BONUS:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
 
@@ -73,8 +74,6 @@ all:		$(NAME)
 
 $(NAME): 	$(OBJ)
 			ar rcs $(NAME) $(OBJ)
-			ar rc $(NAME) $(OBJ)
-			ranlib $(NAME)
 
 clean:
 			$(RM) $(OBJ) $(OBJ_BONUS)
