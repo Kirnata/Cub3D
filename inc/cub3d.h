@@ -109,8 +109,6 @@ typedef struct t_parser
 typedef struct s_data {
 	void *mlx;
 	void *win;
-	int		img_width;
-	int		img_height;
 	t_img	*img;
 	t_game *game;
 	char **map;

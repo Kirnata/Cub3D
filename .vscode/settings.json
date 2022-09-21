@@ -13,7 +13,8 @@
 		"string_view": "c",
 		"unordered_map": "c",
 		"vector": "c",
-		"ranges": "c"
+		"ranges": "c",
+		"__locale": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
