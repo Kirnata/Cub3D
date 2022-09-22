@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/21 16:07:34 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:50:59 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	**parsing(char **map, t_parser *parser)
 	int		l;
 
 	l = check_textures(map, parser);
-	// new_map = NULL;
 	l = check_colours(map, parser);
 	if (l == 1)
 		ft_error("colours problems\n");

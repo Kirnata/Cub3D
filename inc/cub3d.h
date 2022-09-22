@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/21 16:46:44 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:44:39 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ int		check_probel(char **s, int len);
 int		check_last(char **new_map, int len);
 int		ft_get_len(int start, char **list);
 int		get_start_index(char **s);
+char	**ft_clear(char **name);
+int		check_player(char **map, t_parser *parser);
 
 
 //ray_cast_srcs

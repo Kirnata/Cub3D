@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 19:28:16 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/21 18:57:59 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:44:23 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,41 +102,11 @@ int	check_odin(char **s, int k)
 	return (t);
 }
 
-int	check_player(char **map, int len, t_parser *parser)
-{
-	int	i;
-	int	j;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'\
-			|| map[i][j] == 'E')
-			{
-				parser->player.name = map[i][j];
-				parser->player.x = j;
-				parser->player.y = i;
-				count++;
-			}
-			j++;
-		}
-		i++;
-	}
-	printf("len - %d!\n", len);
-	return (count);
-}
-
 char	**check_map(char **content, t_parser *parser)
 {
 	int		start;
 	char	**new_map;
 	int		len;
-	int		i;
 
 	start = get_start_index(content);
 	if (start == -1)
@@ -145,19 +115,9 @@ char	**check_map(char **content, t_parser *parser)
 	if (!new_map)
 		return (NULL);
 	len = ft_get_len(0, new_map);
-	if (check_symbols(new_map) == 1 
-	|| check_last(new_map, len - 1) == 1)
-	// || check_odin(new_map, len) != len || check_probel(new_map, len) == 1 \
-	// || check_player(new_map, len, parser) != 1)
-	{
-		i = 0;
-		while (new_map[i])
-		{
-			free(new_map[i]);
-			i++;
-		}
-		free (new_map);
-		return (NULL);
-	}
+	if (check_symbols(new_map) == 1 || check_last(new_map, len - 1) == 1 \
+	|| check_odin(new_map, len) != len || check_probel(new_map, len) == 1 \
+	|| check_player(new_map, parser) != 1)
+		return (ft_clear(new_map));
 	return (new_map);
 }

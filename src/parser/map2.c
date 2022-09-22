@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   map2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:13:31 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/21 17:13:05 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:45:17 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// 3 из 5 
+char	**ft_clear(char **name)
+{
+	int	i;
+
+	i = 0;
+	while (name[i])
+	{
+		free(name[i]);
+		i++;
+	}
+	free (name);
+	return (NULL);
+}
+
 int	get_start_index(char **s)
 {
 	int		i;
@@ -57,10 +70,8 @@ int	ft_get_len(int start, char **list)
 int	check_last(char **new_map, int len)
 {
 	int	i;
-	int	s;
 
 	i = 0;
-	s = 0;
 	while (new_map[len][i])
 	{
 		if (new_map[len][i] == '1' || new_map[len][i] == ' ' \
@@ -69,6 +80,33 @@ int	check_last(char **new_map, int len)
 		else
 			return (1);
 	}
-	printf("s->%d\n", s);
 	return (0);
+}
+
+int	check_player(char **map, t_parser *parser)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'\
+			|| map[i][j] == 'E')
+			{
+				parser->player.name = map[i][j];
+				parser->player.x = j;
+				parser->player.y = i;
+				count++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (count);
 }
