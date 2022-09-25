@@ -4,9 +4,11 @@ MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
 
-CUB			= cub/start_game.c \
-			cub/my_mlx_pixel_put.c \
-			cub/render.c \
+RAYCAST			= raycast/create_image.c \
+			raycast/my_mlx_pixel_put.c \
+			raycast/game.c \
+			raycast/init.c \
+			raycast/line_render.c \
 			# ray_cast_srcs/hooks.c
 
 GNL			= get_next_line.c\
@@ -23,7 +25,7 @@ PARSER		= check.c \
 			check_probel_map.c \
 			colours2.c
 
-SRCS		= $(addprefix src/, $(CUB))\
+SRCS		= $(addprefix src/, $(RAYCAST))\
 			$(addprefix src/parser/, $(PARSER))\
 			$(addprefix src/get_next_line/, $(GNL))\
 			src/main.c

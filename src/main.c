@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/22 18:57:42 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/24 17:47:30 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 	if (!data)
 		exit(0);
 	data->map = parsing(cub_file, &parser);
-	start_game(data);
+	game(data, &parser);
 	free_parser(data->map, parser, data, cub_file);
 	return (0);
 }
