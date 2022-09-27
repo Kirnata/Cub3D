@@ -9,7 +9,6 @@ RAYCAST			= raycast/create_image.c \
 			raycast/game.c \
 			raycast/init.c \
 			raycast/line_render.c \
-			# ray_cast_srcs/hooks.c
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
@@ -37,9 +36,9 @@ OBJ_D		= $(SRCS:.c=.d)
 CC			= gcc
 
 #-Wall -Wextra -Werror
-CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -I inc -I libft -I
+CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -Iinc -Ilibft -Imlx -fsanitize=address -g -lasan
 
-MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT		= libft/libft.a
 
@@ -54,7 +53,7 @@ $(NAME):	$(OBJS) $(MLX)
 			@make bonus -C libft
 			@echo "$(RED)Generating object files $(RESET)"
 			@echo "$(BLUE)Compiling and linking binary file $(RESET)"
-			$(CC) $(СFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 			@echo "$(GREEN)IT IS FINALLY GENERATED (to use it run $(RED)./$(NAME)$(GREEN)) $(RESET)"
 
 %.o: %.c

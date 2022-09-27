@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/25 16:06:44 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/27 18:38:51 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	**make_map(t_list *head, int size)
 	map = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!map)
 		ft_error("malloc problems");
+	ft_bzero(map, sizeof(char *) * (size + 1));
 	i = -1;
 	while (head != NULL)
 	{
