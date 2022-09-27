@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:13:31 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/22 18:45:17 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/25 21:04:26 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	check_last(char **new_map, int len)
 	return (0);
 }
 
-int	check_player(char **map, t_parser *parser)
+int	check_player(char **map, t_data	*data)
 {
 	int	i;
 	int	j;
@@ -99,9 +99,9 @@ int	check_player(char **map, t_parser *parser)
 			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'\
 			|| map[i][j] == 'E')
 			{
-				parser->player.name = map[i][j];
-				parser->player.x = j;
-				parser->player.y = i;
+				data->player->name = map[i][j];
+				data->player->x = i;//тут поменяла
+				data->player->y = j;
 				count++;
 			}
 			j++;

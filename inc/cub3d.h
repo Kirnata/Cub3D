@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/25 14:22:54 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/25 18:02:25 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@
 
 
 //init
-int raycast_init(t_raycast *raycast);
-int draw_limits_init(t_draw_limits *draw_limits);
-int image_init(t_image *image);
-int line_render(t_data *data);
+void raycast_init(t_raycast *raycast);
+void draw_limits_init(t_draw_limits *draw_limits);
+void image_init(t_image *image);
 //raycasting
 int create_image(t_data *data, t_raycast *raycast);
-void ray_culc(t_raycast *raycast, int x);
-void    dirs_to_steps(t_raycast *raycast);
+void ray_culc(t_raycast *raycast, int x, t_player *player);
+void    dirs_to_steps(t_raycast *raycast, t_player *player);
 void perp_culc(t_raycast *raycast);
 void    dda(t_data *data, t_raycast *raycast);
 void    culc_draw_limits(t_data *data, t_raycast *raycast);
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
-int line_render(t_data *data);
+int line_render(t_data *data, int x);
+int game(t_data *data);
 
 #endif

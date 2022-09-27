@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 19:28:16 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/22 18:44:23 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/25 15:48:32 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	check_odin(char **s, int k)
 	return (t);
 }
 
-char	**check_map(char **content, t_parser *parser)
+char	**check_map(char **content, t_data	*data)
 {
 	int		start;
 	char	**new_map;
@@ -117,7 +117,7 @@ char	**check_map(char **content, t_parser *parser)
 	len = ft_get_len(0, new_map);
 	if (check_symbols(new_map) == 1 || check_last(new_map, len - 1) == 1 \
 	|| check_odin(new_map, len) != len || check_probel(new_map, len) == 1 \
-	|| check_player(new_map, parser) != 1)
+	|| check_player(new_map, data) != 1)
 		return (ft_clear(new_map));
 	return (new_map);
 }

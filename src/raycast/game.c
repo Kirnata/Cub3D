@@ -3,30 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:33:15 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/25 14:18:21 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/25 18:06:16 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int game(t_data *data, t_parser *parser)
+int game(t_data *data)
 {
     t_raycast *raycast;
+
     if (!(raycast = (t_raycast *)malloc(sizeof(t_raycast))))
         ft_error("fatal error: malloc\n");
     if (!(data->image = (t_image *)malloc(sizeof(t_image))))
         ft_error("fatal error: malloc\n");
     if (!(data->draw_limits = (t_draw_limits *)malloc(sizeof(t_draw_limits))))
         ft_error("fatal error: malloc\n");
-    if (!(data->player = (t_player *)malloc(sizeof(t_player))))
-        ft_error("fatal error: malloc\n");
-    int x = parser->player.x;
-    int y = parser->player.y;
-    x = data->player.x;
-    y = data->player.y;
     data->mlx = NULL;
 	data->win = NULL;
     image_init(data->image);   

@@ -6,14 +6,14 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/22 16:50:59 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/25 16:06:44 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 //вернет NULL в случае пиздеца 
-char	**parsing(char **map, t_parser *parser)
+char	**parsing(char **map, t_parser *parser, t_data	*data)
 {
 	char	**new_map;
 	int		l;
@@ -22,7 +22,7 @@ char	**parsing(char **map, t_parser *parser)
 	l = check_colours(map, parser);
 	if (l == 1)
 		ft_error("colours problems\n");
-	new_map = check_map(map, parser);
+	new_map = check_map(map, data);
 	if (!new_map)
 		ft_error("map problems\n");
 	return (new_map);

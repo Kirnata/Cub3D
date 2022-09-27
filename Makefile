@@ -37,7 +37,7 @@ OBJ_D		= $(SRCS:.c=.d)
 CC			= gcc
 
 #-Wall -Wextra -Werror
-CFLAGS		=  -Wall -Wextra -Werror -O2 -MMD -I inc -I libft -I
+CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -I inc -I libft -I
 
 MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
