@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/27 21:03:05 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/28 21:14:53 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void perp_culc(t_raycast *raycast)
     //printf("%f -  perpWallDist \n", raycast->perpWallDist);
 }
 
-void    dda(t_data *data, t_raycast *raycast)
+void    dda(t_data *data)
 {
     int hit;
 
@@ -70,31 +70,31 @@ void    dda(t_data *data, t_raycast *raycast)
     while(hit == 0)
     {
         //jump to next map square, either in x-direction, or in y-direction
-        if(raycast->sideDist.x < raycast->sideDist.y)
+        if(data->raycast->sideDist.x < data->raycast->sideDist.y)
         {
-            raycast->sideDist.x += raycast->deltaDist.x;
-            raycast->mapX += raycast->stepX;
-            raycast->side = 0;
+            data->raycast->sideDist.x += data->raycast->deltaDist.x;
+            data->raycast->mapX += data->raycast->stepX;
+            data->raycast->side = 0;
         }
         else
         {
-            raycast->sideDist.y += raycast->deltaDist.y;
-            raycast->mapY += raycast->stepY;
-            raycast->side = 1;
+            data->raycast->sideDist.y += data->raycast->deltaDist.y;
+            data->raycast->mapY += data->raycast->stepY;
+            data->raycast->side = 1;
         }
         //Check if ray has hit a wall
-        printf("%i-%i raycast->mapX, raycast->mapY in dda\n", raycast->mapX, raycast->mapY);
-        if (data->map[raycast->mapX][raycast->mapY] > '0')
+        printf("%i-%i data->raycast->mapX, data->raycast->mapY in dda\n", data->raycast->mapX, data->raycast->mapY);
+        if (data->map[data->raycast->mapX][data->raycast->mapY] > '0')
           hit = 1;
     }
-    perp_culc(raycast);
+    perp_culc(data->raycast);
 }
 
-void    culc_draw_limits(t_data *data, t_raycast *raycast)
+void    culc_draw_limits(t_data *data)
 {
 	int h = HEIGHT;
-	printf("%f -  perpWallDist \n", raycast->perpWallDist);
-    data->draw_limits->lineHeight = (int)(h / raycast->perpWallDist);
+	printf("%f -  perpWallDist \n", data->raycast->perpWallDist);
+    data->draw_limits->lineHeight = (int)(h / data->raycast->perpWallDist);
     //calculate lowest and highest pixel to fill in current stripe
 	//   	printf("%i - drawStart\n", data->draw_limits->drawStart);
 	// printf("%i - drawEnd\n", data->draw_limits->drawEnd);
@@ -113,7 +113,7 @@ void    culc_draw_limits(t_data *data, t_raycast *raycast)
 	// printf("%i - drawEnd\n", data->draw_limits->drawEnd);
 }
 
-int create_image(t_data *data, t_raycast *raycast)
+void create_image(t_data *data)
 {
 	int	x;
 
@@ -123,14 +123,12 @@ int create_image(t_data *data, t_raycast *raycast)
 								&data->image->endian);//достаем адрес изображения
     while (x < WIDTH)
     {
-      ray_culc(raycast, x, data->player);
-      dirs_to_steps(raycast, data->player);
-      dda(data, raycast);
-      culc_draw_limits(data, raycast);
+      ray_culc(data->raycast, x, data->player);
+      dirs_to_steps(data->raycast, data->player);
+      dda(data);
+      culc_draw_limits(data);
       line_render(data, x);
       x++;
     }
-    //внутри dda рассчитывается необходимое и внутри же вызывается draw_lines
     mlx_put_image_to_window(data->mlx, data->win, data->image->img, 0, 0);
-	return (0);
 }

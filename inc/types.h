@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/25 18:03:24 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/28 21:10:32 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ typedef struct	s_raycast {
 	int		stepY;//в каком направлении делать шаг по оси y (либо +1, либо -1)
 	int		side;
 
-	// double		rotSpeed;
-	// double		moveSpeed;
+	double		rotSpeed;
+	double		moveSpeed;
 	double			wall_x; // в какое место мы ударились
 	double			step; // Насколько увеличить координату текстуры на пиксель экрана
 }				t_raycast;
@@ -69,6 +69,7 @@ typedef struct s_player
 	char	name;
 	int		x;
 	int		y;
+	int		move_key;
 }	t_player;
 
 typedef struct	s_draw_limits
@@ -84,6 +85,7 @@ typedef struct	s_data {
 	t_image	*image;
 	t_player *player;
 	t_draw_limits *draw_limits;
+	t_raycast	*raycast;
 	char **map;
 	
 }				t_data;

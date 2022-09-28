@@ -14,7 +14,8 @@
 		"unordered_map": "c",
 		"vector": "c",
 		"ranges": "c",
-		"__locale": "c"
+		"__locale": "c",
+		"__node_handle": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

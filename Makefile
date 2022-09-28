@@ -9,6 +9,8 @@ RAYCAST			= raycast/create_image.c \
 			raycast/game.c \
 			raycast/init.c \
 			raycast/line_render.c \
+			raycast/render_after_move.c \
+			raycast/key_hooks.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
@@ -27,7 +29,8 @@ PARSER		= check.c \
 SRCS		= $(addprefix src/, $(RAYCAST))\
 			$(addprefix src/parser/, $(PARSER))\
 			$(addprefix src/get_next_line/, $(GNL))\
-			src/main.c
+			src/main.c \
+			src/cleaners.c \
 
 OBJS		= $(SRCS:.c=.o)
 

@@ -6,39 +6,11 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/27 20:14:13 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/28 22:00:35 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cub3d.h"
-
-void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
-{
-	int	i;
-
-	if (map)
-	{
-		i = 0;
-		while (map[i])
-		{
-			free(map[i]);
-			i++;
-		}
-		free (map);
-	}
-	free(parser.north);
-	free(parser.south);
-	free(parser.west);
-	free(parser.east);
-	free(data);
-	i = 0;
-	while (cub_file[i])
-	{
-		free(cub_file[i]);
-		i++;
-	}
-	free (cub_file);
-}
+#include "cub3d.h"
 
 int	main(int ac, char **av)
 {
@@ -61,6 +33,6 @@ int	main(int ac, char **av)
 	printf("%i-%i - x and y in player in ray_culc\n", data->player->x, data->player->y);
 	//exit(0);
 	game(data);
-	// free_parser(data->map, parser, data, cub_file);
+	free_parser(data->map, parser, data, cub_file);
 	return (0);
 }
