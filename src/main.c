@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/28 22:00:35 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:11:27 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	main(int ac, char **av)
 	printf("%i-%i - x and y in player in ray_culc\n", data->player->x, data->player->y);
 	//exit(0);
 	game(data);
-	free_parser(data->map, parser, data, cub_file);
+	//free_parser(data->map, parser, data, cub_file);
 	return (0);
 }

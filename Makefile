@@ -7,7 +7,7 @@ MLX_H		= ./mlx/mlx.h
 RAYCAST			= raycast/create_image.c \
 			raycast/my_mlx_pixel_put.c \
 			raycast/game.c \
-			raycast/init.c \
+			raycast/data_init.c \
 			raycast/line_render.c \
 			raycast/render_after_move.c \
 			raycast/key_hooks.c \

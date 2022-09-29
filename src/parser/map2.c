@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:13:31 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/25 21:04:26 by bpono            ###   ########.fr       */
+/*   Updated: 2022/09/29 17:43:46 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ int	check_player(char **map, t_data	*data)
 		}
 		i++;
 	}
+	data->player->move_key = -1;
 	return (count);
 }
