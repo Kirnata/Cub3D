@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/29 16:52:54 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:29:20 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void draw_limits_init(t_draw_limits *draw_limits)
 void raycast_init(t_raycast *raycast)
 {
     raycast->plane.x = -raycast->dir.y * 0.66;;//the 2d raycaster version of camera plane
-    raycast->plane.y = raycast->dir.x * 0.66;;
+    raycast->plane.y = -raycast->dir.x * 0.66;;
     raycast->camera.x = 0;
     raycast->camera.y = 0;
     raycast->rayDir.x = 0;

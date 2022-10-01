@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:33:15 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/29 17:47:39 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:21:12 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int game(t_data *data)
     create_image(data);
     mlx_hook(data->win, 2, 0, key_press, data);
     mlx_hook(data->win, 3, 0, key_release, data);
-    mlx_hook(data->win, 17, 0, exit_cleaner, data);//реализовать cleaner
+    mlx_hook(data->win, ON_DESTROY, 0, exit_cleaner, data);//реализовать cleaner
     mlx_loop_hook(data->mlx, render_after_move, data);
     mlx_loop(data->mlx);
     return (0);

@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:50:55 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/29 18:04:23 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/09/29 19:22:28 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	key_press(int keycode, t_data *data)
 int	key_release(int keycode, t_data *data)
 {
 	if (keycode == data->player->move_key)
-	{
 		data->player->move_key = -1;
-		//create_image(data);
-	}
 	return (0);
 }

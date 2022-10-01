@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/29 17:11:27 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:07:24 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	main(int ac, char **av)
 	if (!data->player)
 		exit(0);
 	data->map = parsing(cub_file, &parser, data);
-	printf("%i-%i - x and y in player in ray_culc\n", data->player->x, data->player->y);
-	//exit(0);
 	game(data);
-	//free_parser(data->map, parser, data, cub_file);
+	//free_parser(data->map, parser, data, cub_file);вот это засунуть в общий exit_cleaner
 	return (0);
 }

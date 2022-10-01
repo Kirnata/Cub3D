@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/29 17:18:50 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:47:08 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct	s_point {
 
 typedef struct	s_raycast {
 //много много всякой хуйни
-	t_point	pos;//вектор позиции игрока
 	t_point	dir;//направление игрока
 	t_point	plane;//плоскость камеры игрока(д.б. перпендикулярна dir)
 	t_point	camera;//коорд  в прост кам
@@ -65,8 +64,8 @@ typedef struct	s_raycast {
 typedef struct s_player
 {
 	char	name;
-	int		x;
-	int		y;
+	double		x;//вектор позиции игрока
+	double		y;
 	int		move_key;
 }	t_player;
 

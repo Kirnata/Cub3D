@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/28 21:14:53 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:16:17 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ray_culc(t_raycast *raycast, int x, t_player *player)
 {
 	int w = WIDTH;
-	raycast->camera.x = 2 * x / (double) w - 1;//x-coordinate in camera space
+	raycast->camera.x = 2 * x / (double)w - 1;//x-coordinate in camera space
 	raycast->rayDir.x = raycast->dir.x + raycast->plane.x * raycast->camera.x;
 	raycast->rayDir.y = raycast->dir.y + raycast->plane.y * raycast->camera.y;
 	//which box of the map we're in
@@ -44,12 +44,12 @@ void    dirs_to_steps(t_raycast *raycast, t_player *player)
     if(raycast->rayDir.y < 0)
     {
       raycast->stepY = -1;
-      raycast->sideDist.y = (raycast->pos.y - raycast->mapY) * raycast->deltaDist.y;
+      raycast->sideDist.y = (player->y - raycast->mapY) * raycast->deltaDist.y;
     }
     else
     {
       raycast->stepY = 1;
-      raycast->sideDist.y = (raycast->mapY + 1.0 - raycast->pos.y) * raycast->deltaDist.y;
+      raycast->sideDist.y = (raycast->mapY + 1.0 - player->y) * raycast->deltaDist.y;
     }
 }
 
@@ -84,7 +84,7 @@ void    dda(t_data *data)
         }
         //Check if ray has hit a wall
         printf("%i-%i data->raycast->mapX, data->raycast->mapY in dda\n", data->raycast->mapX, data->raycast->mapY);
-        if (data->map[data->raycast->mapX][data->raycast->mapY] > '0')
+        if (data->map[data->raycast->mapX][data->raycast->mapY] == '1')//> '0' не баг, а фича
           hit = 1;
     }
     perp_culc(data->raycast);

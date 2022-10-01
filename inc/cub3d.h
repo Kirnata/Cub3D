@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/29 18:07:33 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:19:03 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,27 @@
 # define KEY_S 1
 # define KEY_D 2
 
+/* пока не используются
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
 # define KEY_FORWARD 126
 # define KEY_BACK 125
+*/
 
 # define ON_DESTROY 17
 
-# define MAP_SCALE 15
+// # define MAP_SCALE 5
 
-#define ROTATE_SPEED 0.07
-#define MOVE_SPEED 0.09
+#define ROTATE_SPEED 0.05
+#define MOVE_SPEED 0.3f
 
 # define WIDTH 800
 # define HEIGHT 500
 # define MAP_INSIDE "0NSEW"
+
+# define FALSE 0
+# define TRUE = !FALSE
 
 
 //init
@@ -74,7 +79,6 @@ int	key_press(int keycode, t_data *data);
 int	key_release(int keycode, t_data *data);
 void	check_move(t_data *data);
 void	check_rotate(t_data *data);
-void	check_exit(t_data *data);
 
 //utls
 int exit_cleaner(t_data *data);
