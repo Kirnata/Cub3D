@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/01 16:29:20 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/02 23:29:24 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,15 @@ void	init_direction(t_point *dir, char name)//initial direction vector
 	}		
 }
 
+void minimap_init(t_minimap *minimap)
+{
+	minimap->minimap_x = 0;
+	minimap->minimap_y = 0;
+    minimap->colour = 0x0066CCFF;
+    calc_map_scale(&(minimap->minimap_scale));
+    printf("%i->scale\n", minimap->minimap_scale);
+}
+
 void	data_init(t_data *data)
 {
 	if (!(data->raycast = (t_raycast *)malloc(sizeof(t_raycast))))
@@ -84,10 +93,15 @@ void	data_init(t_data *data)
 	{
         ft_error("fatal error: malloc\n");
 	}
+    if (!(data->minimap = (t_minimap *)malloc(sizeof(t_minimap))))
+	{
+        ft_error("fatal error: malloc\n");
+	}
 	data->mlx = NULL;
 	data->win = NULL;
 	init_direction(&(data->raycast->dir), data->player->name);
 	raycast_init(data->raycast);
 	image_init(data->image);
 	draw_limits_init(data->draw_limits);
+    minimap_init(data->minimap);
 }

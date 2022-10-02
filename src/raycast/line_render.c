@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 17:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/28 21:48:48 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/02 21:41:37 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ int line_render(t_data *data, int x)
 		if (y < data->draw_limits->drawStart)
 			my_mlx_pixel_put(data->image, x, y, 0x0066CCFF);//blue
 		else if (y >= data->draw_limits->drawStart && y < data->draw_limits->drawEnd)
-			my_mlx_pixel_put(data->image, x, y, 0x00FF9999);//забор
+		{
+			if (data->raycast->side == 0)
+				my_mlx_pixel_put(data->image, x, y, 0x00FF9999);//забор
+			if (data->raycast->side == 1)
+				my_mlx_pixel_put(data->image, x, y, 0x00CC99FF);//забор					
+		}
+			
 		else if (y < HEIGHT)
 			my_mlx_pixel_put(data->image, x, y, 0x00CC9966);//земля
 		y++;

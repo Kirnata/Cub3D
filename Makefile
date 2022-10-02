@@ -11,6 +11,7 @@ RAYCAST			= raycast/create_image.c \
 			raycast/line_render.c \
 			raycast/render_after_move.c \
 			raycast/key_hooks.c \
+			raycast/minimap.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c

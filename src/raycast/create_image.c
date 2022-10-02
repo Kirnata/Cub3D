@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/01 18:16:17 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/02 22:57:37 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ void create_image(t_data *data)
       line_render(data, x);
       x++;
     }
+    draw_mini_map(data);
     mlx_put_image_to_window(data->mlx, data->win, data->image->img, 0, 0);
 }
