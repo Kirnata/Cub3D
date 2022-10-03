@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:02:27 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 23:58:43 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:57:19 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void draw_mini_map(t_data *data)
     data->minimap->minimap_y = 0;
     while (data->map[y] != NULL)
     {
-        while (data->map[y][x] != '\0')
+        while (data->map[y][x] != '\n' && data->map[y][x] != '\0')
         {
-            ft_scuare(data, data->map[y][x], x, y);
-            data->minimap->minimap_x = x;
+            if (data->map[y][x] != ' ')
+                ft_scuare(data, data->map[y][x], x, y);     
             x++;
+            data->minimap->minimap_x = x * data->minimap->minimap_scale;
         }
         y++;
         x = 0;
@@ -40,7 +41,7 @@ void ft_scuare(t_data *data, char c, int x, int y)
 {
     if (c == '0')
         data->minimap->colour = 0x00FF6600;
-    else if (c == '1')
+    else
         data->minimap->colour = 0x00FFFFFF;
     if ((int)data->player->x == x && (int)data->player->y == y)
         data->minimap->colour = 0x0033FF00;
@@ -50,7 +51,7 @@ void ft_scuare(t_data *data, char c, int x, int y)
 void    calc_map_scale(int *scale)
 {
     if (WIDTH < 1200 && HEIGHT < 1000)
-        *scale = 5;
+        *scale = 8;
     else 
         *scale = 10;
 }

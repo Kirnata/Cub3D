@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/02 23:57:15 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:02:24 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@
 
 // # define MAP_SCALE 5
 
-#define ROTATE_SPEED 0.07
-#define MOVE_SPEED 0.3
+#define ROTATE_SPEED 0.09
+#define MOVE_SPEED 0.2
 
 # define WIDTH 800
 # define HEIGHT 500

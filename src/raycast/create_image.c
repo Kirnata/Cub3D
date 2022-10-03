@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 22:57:37 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:05:11 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,19 @@ void    dirs_to_steps(t_raycast *raycast, t_player *player)
 void perp_culc(t_raycast *raycast)
 {
     if (raycast->side == 0)
-        raycast->perpWallDist = (raycast->sideDist.x - raycast->deltaDist.x);
-    else
-        raycast->perpWallDist = (raycast->sideDist.y - raycast->deltaDist.y);
-    //printf("%f -  perpWallDist \n", raycast->perpWallDist);
+    {
+		if (raycast->sideDist.x == raycast->deltaDist.x)
+			raycast->perpWallDist= 0.9;
+		else
+			raycast->perpWallDist = raycast->sideDist.x - raycast->deltaDist.x;
+	}
+	else
+	{
+		if (raycast->sideDist.y == raycast->deltaDist.y)
+			raycast->perpWallDist = 0.9;
+		else
+			raycast->perpWallDist =  raycast->sideDist.y - raycast->deltaDist.y;
+	}
 }
 
 void    dda(t_data *data)

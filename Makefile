@@ -40,7 +40,7 @@ OBJ_D		= $(SRCS:.c=.d)
 CC			= gcc
 
 #-Wall -Wextra -Werror
-CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -Iinc -Ilibft -Imlx -fsanitize=address -g -lasan
+CFLAGS		= -Wall -Wextra -Werror -O3 -MMD -Iinc -Ilibft -Imlx -fsanitize=address -g -lasan
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
