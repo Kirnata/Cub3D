@@ -1,3 +1,3 @@
 # Cub3D
-Start project to practice ray casting
+Start project to practice ray casting<br>
 In progress ✨
