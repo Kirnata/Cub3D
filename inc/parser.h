@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:11:24 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/25 17:50:15 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/07 20:07:36 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@
 // 	int		y;
 // }	t_player;
 */
-typedef struct s_parser
-{
-	char		*north;
-	char		*south;
-	char		*west;
-	char		*east;
-	int			floor;
-	int			ceilling;
-}	t_parser;
+// typedef struct s_parser
+// {
+// 	char		*north;
+// 	char		*south;
+// 	char		*west;
+// 	char		*east;
+// 	int			floor;
+// 	int			ceilling;
+// }	t_parser;
 
 typedef struct s_colour
 {

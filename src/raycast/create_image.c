@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/03 21:05:11 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/07 22:22:27 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,24 +99,36 @@ void    dda(t_data *data)
     perp_culc(data->raycast);
 }
 
+void culc_txt(t_raycast *raycast, t_player *player, char **map)
+{
+	//texturing calculations
+	raycast->texNum = map[raycast->mapX][raycast->mapY];
+	//calculate value of wallX
+	if (raycast->side == 0)
+    	raycast->wallX = player->y + raycast->perpWallDist * raycast->rayDir.y;
+	else
+		raycast->wallX = player->x + raycast->perpWallDist * raycast->rayDir.x;
+	
+	raycast->wallX -= floorf(raycast->wallX);
+	//x coordinate on the texture
+	raycast->texX = (int)(raycast->wallX * (double)(TEXWIDTH));
+	if (raycast->side == 0 && raycast->rayDir.x > 0)
+		raycast->texX = TEXWIDTH - raycast->texX - 1;
+	if (raycast->side == 1 && raycast->rayDir.x < 0)
+		raycast->texX = TEXWIDTH - raycast->texX - 1;
+}
+
 void    culc_draw_limits(t_data *data)
 {
-	int h = HEIGHT;
 	printf("%f -  perpWallDist \n", data->raycast->perpWallDist);
-    data->draw_limits->lineHeight = (int)(h / data->raycast->perpWallDist);
-    //calculate lowest and highest pixel to fill in current stripe
-	//   	printf("%i - drawStart\n", data->draw_limits->drawStart);
-	// printf("%i - drawEnd\n", data->draw_limits->drawEnd);
-	// int u;
-	// u = (int)1080/0.0;
-	// printf("%d\n",u);
+    data->draw_limits->lineHeight = (int)(HEIGHT / data->raycast->perpWallDist);
   	printf("%i -  lineHeight\n", data->draw_limits->lineHeight);
-    data->draw_limits->drawStart = -data->draw_limits->lineHeight / 2 + h / 2;
+    data->draw_limits->drawStart = -data->draw_limits->lineHeight / 2 + HEIGHT / 2;
     if(data->draw_limits->drawStart < 0)
 		data->draw_limits->drawStart = 0;
-    data->draw_limits->drawEnd = data->draw_limits->lineHeight / 2 + h / 2;
-    if(data->draw_limits->drawEnd >= h)
-		data->draw_limits->drawEnd = h - 1;
+    data->draw_limits->drawEnd = data->draw_limits->lineHeight / 2 + HEIGHT / 2;
+    if(data->draw_limits->drawEnd >= HEIGHT)
+		data->draw_limits->drawEnd = HEIGHT - 1;
 	printf("%i-%i, data->draw_limits->drawStart, data->draw_limits->drawEnd", data->draw_limits->drawStart, data->draw_limits->drawEnd);
 	// printf("%i - drawStart\n", data->draw_limits->drawStart);
 	// printf("%i - drawEnd\n", data->draw_limits->drawEnd);
@@ -135,6 +147,7 @@ void create_image(t_data *data)
       ray_culc(data->raycast, x, data->player);
       dirs_to_steps(data->raycast, data->player);
       dda(data);
+      culc_txt(data->raycast, data->player, data->map);
       culc_draw_limits(data);
       line_render(data, x);
       x++;

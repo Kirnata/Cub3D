@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/03 21:02:24 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/07 22:22:05 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <ctype.h>
 # include "mlx.h"
 # include "parser.h"
-#include "types.h"
+# include "types.h"
 # include <math.h>
 # include "get_next_line.h"
 # include "../libft/libft.h"
@@ -52,10 +52,10 @@
 
 # define WIDTH 800
 # define HEIGHT 500
-# define MAP_INSIDE "0NSEW"
+# define TEXWIDTH 64
+# define TEXHEIGHT 64
+//# define MAP_INSIDE "0NSEW"
 
-# define FALSE 0
-# define TRUE = !FALSE
 
 
 //init
@@ -71,6 +71,7 @@ void ray_culc(t_raycast *raycast, int x, t_player *player);
 void    dirs_to_steps(t_raycast *raycast, t_player *player);
 void perp_culc(t_raycast *raycast);
 void    dda(t_data *data);
+void culc_txt(t_raycast *raycast, t_player *player, char **map);
 void    culc_draw_limits(t_data *data);
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
 int line_render(t_data *data, int x);
@@ -80,6 +81,8 @@ int	key_press(int keycode, t_data *data);
 int	key_release(int keycode, t_data *data);
 void	check_move(t_data *data);
 void	check_rotate(t_data *data);
+int create_textures(t_data *data);
+t_image new_textures(void *mlx, char *direction, char dir_char);
 
 //minimap
 void draw_mini_map(t_data *data);

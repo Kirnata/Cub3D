@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 22:55:48 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:07:26 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@
 #include "cub3d.h"
 #include "parser.h"
 
-/*структурка для текстурок
-typedef struct s_textr {
-//очень много штук для текстурок
-}				t_textr;
-*/
-
-/*
-// typedef struct s_keys {
-// 	//разные штучччччки
-// }
-*/
-
 //для конкретного изображения
 typedef struct s_image {
 	void	*img;
@@ -35,6 +23,9 @@ typedef struct s_image {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		img_height;
+	int		img_weight;
+	char		dir_fl;
 }				t_image;
 
 typedef struct	s_point {
@@ -56,8 +47,11 @@ typedef struct	s_raycast {
 	int		stepX;//в каком направлении делать шаг по оси x (либо +1, либо -1)
 	int		stepY;//в каком направлении делать шаг по оси y (либо +1, либо -1)
 	int		side;
-	double			wall_x; // в какое место мы ударились
 	double			step; // Насколько увеличить координату текстуры на пиксель экрана
+	int texNum;
+	double			wallX;//where exactly the wall was hit в какое место мы ударились
+	int texX;//x coordinate on the texture
+	// int texY;//y coordinate on the texture
 }				t_raycast;
 
 typedef struct s_player
@@ -83,6 +77,16 @@ typedef struct	s_minimap
 	int		colour;
 }				t_minimap;
 
+typedef struct s_parser
+{
+	char		*north;
+	char		*south;
+	char		*west;
+	char		*east;
+	int			floor;
+	int			ceilling;
+}	t_parser;
+
 typedef struct	s_data {
 	void	*mlx;
 	void	*win;
@@ -92,7 +96,8 @@ typedef struct	s_data {
 	t_raycast	*raycast;
 	t_minimap *minimap;
 	char **map;
-	
+	t_parser *xpms_info;
+	t_image		textures[4];
 }				t_data;
 
 #endif

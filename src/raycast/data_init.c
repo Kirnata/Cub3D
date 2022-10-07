@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 23:29:24 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:07:32 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void image_init(t_image *image)
     image->bits_per_pixel = 0;
     image->endian = 0;
     image->line_length = 0;
-}
+    image->dir_fl = 0;
+}//заинитить img_weight img_height
 
 void draw_limits_init(t_draw_limits *draw_limits)
 {
@@ -31,8 +32,8 @@ void draw_limits_init(t_draw_limits *draw_limits)
 
 void raycast_init(t_raycast *raycast)
 {
-    raycast->plane.x = -raycast->dir.y * 0.66;;//the 2d raycaster version of camera plane
-    raycast->plane.y = -raycast->dir.x * 0.66;;
+    raycast->plane.x = -raycast->dir.y * 0.66;//the 2d raycaster version of camera plane
+    raycast->plane.y = -raycast->dir.x * 0.66;
     raycast->camera.x = 0;
     raycast->camera.y = 0;
     raycast->rayDir.x = 0;
@@ -46,8 +47,11 @@ void raycast_init(t_raycast *raycast)
     raycast->stepX = 0;
     raycast->stepY = 0;
     raycast->side = 0;
-    raycast->wall_x = 0;
     raycast->step = 0;
+    raycast->texNum = 0;
+    raycast->wallX = 0;
+	raycast->texX = 0;
+	// raycast->texY = 0;
 }
 
 void	init_direction(t_point *dir, char name)//initial direction vector
@@ -104,4 +108,5 @@ void	data_init(t_data *data)
 	image_init(data->image);
 	draw_limits_init(data->draw_limits);
     minimap_init(data->minimap);
+    create_textures(data);
 }
