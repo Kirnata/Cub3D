@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/07 22:07:32 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:37:53 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void image_init(t_image *image)
     image->bits_per_pixel = 0;
     image->endian = 0;
     image->line_length = 0;
-    image->dir_fl = 0;
 }//заинитить img_weight img_height
 
 void draw_limits_init(t_draw_limits *draw_limits)
@@ -51,6 +50,8 @@ void raycast_init(t_raycast *raycast)
     raycast->texNum = 0;
     raycast->wallX = 0;
 	raycast->texX = 0;
+    raycast->texY = 0;
+    raycast->texPos = 0;
 	// raycast->texY = 0;
 }
 
@@ -101,6 +102,10 @@ void	data_init(t_data *data)
 	{
         ft_error("fatal error: malloc\n");
 	}
+    if (!(data->txts = (t_textures *)malloc(sizeof(t_textures))))
+    {
+        ft_error("fatal error: malloc\n");
+    }
 	data->mlx = NULL;
 	data->win = NULL;
 	init_direction(&(data->raycast->dir), data->player->name);
@@ -108,5 +113,5 @@ void	data_init(t_data *data)
 	image_init(data->image);
 	draw_limits_init(data->draw_limits);
     minimap_init(data->minimap);
-    create_textures(data);
+    txt_init(data);
 }

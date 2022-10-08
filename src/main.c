@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/07 19:43:46 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:08:36 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	if (!data->player)
 		exit(0);
 	data->map = parsing(cub_file, &parser, data);
-	data->xpms_info = &parser;
+	data->xpms_path = &parser;
 	game(data);
 	//free_parser(data->map, parser, data, cub_file);вот это засунуть в общий exit_cleaner
 	return (0);

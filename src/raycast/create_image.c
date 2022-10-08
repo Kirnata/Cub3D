@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/07 22:22:27 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/08 15:46:48 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void    dda(t_data *data)
 void culc_txt(t_raycast *raycast, t_player *player, char **map)
 {
 	//texturing calculations
-	raycast->texNum = map[raycast->mapX][raycast->mapY];
+	raycast->texNum = map[raycast->mapX][raycast->mapY];//без понятия зачем это нужно
 	//calculate value of wallX
 	if (raycast->side == 0)
     	raycast->wallX = player->y + raycast->perpWallDist * raycast->rayDir.y;

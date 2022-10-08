@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/07 22:22:05 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:38:26 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ int	key_press(int keycode, t_data *data);
 int	key_release(int keycode, t_data *data);
 void	check_move(t_data *data);
 void	check_rotate(t_data *data);
-int create_textures(t_data *data);
-t_image new_textures(void *mlx, char *direction, char dir_char);
+int txt_init(t_data *data);
+void open_txt(void *mlx, t_image *txt, char *direction);
+void txt_loader(t_textures *txts, void *mlx, t_parser *xpms_path);
+int	get_pixel_color(t_image *txt, int x, int y);
 
 //minimap
 void draw_mini_map(t_data *data);
