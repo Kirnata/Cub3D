@@ -41,7 +41,17 @@ OBJ_D		= $(SRCS:.c=.d)
 CC			= gcc
 
 #-Wall -Wextra -Werror
-CFLAGS		= -Wall -Wextra -Werror -O3 -MMD -Iinc -Ilibft -Imlx -fsanitize=address -g -lasan
+# CFLAGS		= -Wall -Wextra -Werror -MMD -Iinc -Ilibft -Imlx -g
+CFLAGS		= -Wall -Wextra -Werror -O3 -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
+
+# valgrind: cub_3D.a
+#      valgrind --leak-check=full \
+#       --show-leak-kinds=all \
+#       --track-origins=yes \
+#       --verbose \
+#       --log-file=valgrind-out.txt \
+#       ./cub3D.out
+# -lasan
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 

@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:33:15 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 20:36:41 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/10 21:32:40 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int game(t_data *data)
 {
     data_init(data);
-    data->mlx = mlx_init();//указатель который дальше запихивается в разные функции
-	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3D");
     create_image(data);
     mlx_hook(data->win, 2, 0, key_press, data);
     mlx_hook(data->win, 3, 0, key_release, data);

@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/08 17:37:53 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:57:57 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void image_init(t_image *image)
     image->bits_per_pixel = 0;
     image->endian = 0;
     image->line_length = 0;
-}//заинитить img_weight img_height
+    image->img_height = 0;
+    image->img_weight = 0;
+}
 
 void draw_limits_init(t_draw_limits *draw_limits)
 {
@@ -47,7 +49,6 @@ void raycast_init(t_raycast *raycast)
     raycast->stepY = 0;
     raycast->side = 0;
     raycast->step = 0;
-    raycast->texNum = 0;
     raycast->wallX = 0;
 	raycast->texX = 0;
     raycast->texY = 0;
@@ -108,6 +109,8 @@ void	data_init(t_data *data)
     }
 	data->mlx = NULL;
 	data->win = NULL;
+    data->mlx = mlx_init();//указатель который дальше запихивается в разные функции
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3D");
 	init_direction(&(data->raycast->dir), data->player->name);
 	raycast_init(data->raycast);
 	image_init(data->image);

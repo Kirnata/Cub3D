@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:13:31 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/03 21:07:02 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/11 20:40:44 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,15 @@ int	ft_get_len(int start, char **list)
 	int	k;
 
 	k = 0;
-	while (list[start])
+	printf("%d\n", start);
+	printf("BOOM %p\n", list);
+	while (list[start] != NULL)
 	{
+		printf("%p\n",list[start]);
 		k++;
 		start++;
 	}
+	//printf("%s",list[start]);
 	return (k);
 }
 

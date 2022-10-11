@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/08 15:46:48 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:08:12 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,8 @@ void    dda(t_data *data)
     perp_culc(data->raycast);
 }
 
-void culc_txt(t_raycast *raycast, t_player *player, char **map)
+void culc_txt(t_raycast *raycast, t_player *player)
 {
-	//texturing calculations
-	raycast->texNum = map[raycast->mapX][raycast->mapY];//без понятия зачем это нужно
 	//calculate value of wallX
 	if (raycast->side == 0)
     	raycast->wallX = player->y + raycast->perpWallDist * raycast->rayDir.y;
@@ -114,7 +112,7 @@ void culc_txt(t_raycast *raycast, t_player *player, char **map)
 	raycast->texX = (int)(raycast->wallX * (double)(TEXWIDTH));
 	if (raycast->side == 0 && raycast->rayDir.x > 0)
 		raycast->texX = TEXWIDTH - raycast->texX - 1;
-	if (raycast->side == 1 && raycast->rayDir.x < 0)
+	if (raycast->side == 1 && raycast->rayDir.y < 0)
 		raycast->texX = TEXWIDTH - raycast->texX - 1;
 }
 
@@ -147,7 +145,7 @@ void create_image(t_data *data)
       ray_culc(data->raycast, x, data->player);
       dirs_to_steps(data->raycast, data->player);
       dda(data);
-      culc_txt(data->raycast, data->player, data->map);
+      culc_txt(data->raycast, data->player);
       culc_draw_limits(data);
       line_render(data, x);
       x++;

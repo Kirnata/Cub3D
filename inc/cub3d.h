@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/08 17:38:26 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:03:36 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void ray_culc(t_raycast *raycast, int x, t_player *player);
 void    dirs_to_steps(t_raycast *raycast, t_player *player);
 void perp_culc(t_raycast *raycast);
 void    dda(t_data *data);
-void culc_txt(t_raycast *raycast, t_player *player, char **map);
+void culc_txt(t_raycast *raycast, t_player *player);
 void    culc_draw_limits(t_data *data);
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
 int line_render(t_data *data, int x);

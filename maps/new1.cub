@@ -1,8 +1,8 @@
 
-NO textures/ex.xpm
-SO textures/ex.xpm
-WE textures/ex.xpm
-EA textures/ex.xpm
+NO /Users/ptopping/Desktop/our_cub/textures/pivozavr.xpm
+SO /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
+WE /Users/ptopping/Desktop/our_cub/textures/pivozavr.xpm
+EA /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
 
 F 220  , 100   ,   0
 C 225,30,0
@@ -16,7 +16,7 @@ C 225,30,0
 1100000011010101110000001000111
 10000000N0000000110000001000111
 1000000000000000110101001000111
-1100000111010101111101111000111
+1100000100010101111101111000111
 1111011111111111111101111010001
 11111111         11111111111111
 11111111         11111111111111

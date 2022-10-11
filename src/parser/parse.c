@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/27 18:38:51 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/11 20:38:27 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ char	**make_map(t_list *head, int size)
 	if (!map)
 		ft_error("malloc problems");
 	ft_bzero(map, sizeof(char *) * (size + 1));
-	i = -1;
+	i = 0;
 	while (head != NULL)
 	{
-		map[++i] = head->content;
+		map[i++] = head->content;
 		head = head->next;
 	}
+	map[i] = NULL;
 	return (map);
 }
 
@@ -68,6 +69,6 @@ char	**get_file(char *map_name)
 		line = get_next_line(fd);
 	}
 	map = make_map(head, ft_lstsize(head));
-	ft_lstclear(&head, NULL);
+	//ft_lstclear(&head, NULL);
 	return (map);
 }

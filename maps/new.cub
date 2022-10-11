@@ -1,8 +1,8 @@
 
-NO textures/water_texture.xpm
-SO textures/water_texture.xpm
-WE textures/water_texture.xpm
-EA textures/water_texture.xpm
+NO /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
+SO /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
+WE /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
+EA /Users/ptopping/Desktop/our_cub/textures/water_texture.xpm
 
 F 220  , 100   ,   0
 C 225,30,0

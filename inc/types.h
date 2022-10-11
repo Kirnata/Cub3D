@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/08 17:07:06 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:16:51 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ typedef struct	s_raycast {
 	int		stepY;//в каком направлении делать шаг по оси y (либо +1, либо -1)
 	int		side;
 	double			step; // Насколько увеличить координату текстуры на пиксель экрана
-	int texNum;
 	double			wallX;//where exactly the wall was hit в какое место мы ударились
 	int texX;//x coordinate on the texture
 	int texY;
-	int texPos;
+	double texPos;
 	// int texY;//y coordinate on the texture
 }				t_raycast;
 
