@@ -4,15 +4,15 @@ MLX			= libmlx.dylib
 
 MLX_H		= ./mlx/mlx.h
 
-RAYCAST			= raycast/create_image.c \
-			raycast/my_mlx_pixel_put.c \
-			raycast/game.c \
-			raycast/data_init.c \
-			raycast/line_render.c \
-			raycast/render_after_move.c \
-			raycast/key_hooks.c \
-			raycast/minimap.c \
-			raycast/create_textures.c   \
+SCREEN		= create_image.c \
+			my_mlx_pixel_put.c \
+			game.c \
+			data_init.c \
+			line_render.c \
+			render_after_move.c \
+			key_hooks.c \
+			minimap.c \
+			create_textures.c   \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
@@ -26,9 +26,9 @@ PARSER		= check.c \
 			textures2.c \
 			colours.c \
 			check_probel_map.c \
-			colours2.c
+			colours2.c \
 
-SRCS		= $(addprefix src/, $(RAYCAST))\
+SRCS		= $(addprefix src/screen/, $(SCREEN))\
 			$(addprefix src/parser/, $(PARSER))\
 			$(addprefix src/get_next_line/, $(GNL))\
 			src/main.c \
@@ -40,18 +40,8 @@ OBJ_D		= $(SRCS:.c=.d)
 
 CC			= gcc
 
-#-Wall -Wextra -Werror
-# CFLAGS		= -Wall -Wextra -Werror -MMD -Iinc -Ilibft -Imlx -g
-CFLAGS		= -Wall -Wextra -Werror -O3 -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
-
-# valgrind: cub_3D.a
-#      valgrind --leak-check=full \
-#       --show-leak-kinds=all \
-#       --track-origins=yes \
-#       --verbose \
-#       --log-file=valgrind-out.txt \
-#       ./cub3D.out
-# -lasan
+# CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 

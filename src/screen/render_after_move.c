@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:54:08 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 20:35:39 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:10:20 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	check_rotate(t_data *data)
 
 int render_after_move(t_data *data)
 {
-	printf("%d\n",data->player->move_key);
+	//printf("%d\n",data->player->move_key);
 	if (data->player->move_key == KEY_W || data->player->move_key == KEY_S || data->player->move_key == KEY_A || data->player->move_key == KEY_D)
 		check_move(data);
 	else if (data->player->move_key == KEY_LEFT || data->player->move_key == KEY_RIGHT)	

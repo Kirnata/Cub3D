@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:32:29 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/11 20:44:08 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/12 18:10:20 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_textures(char **map, t_parser *parser)
 	int	len;
 
 	len = ft_get_len(0, map);
-	printf("%d\n",len);
+	//printf("%d\n",len);
 	// exit(0);
 	m = check_only_4textures(map, len);
 	if (m == 1)

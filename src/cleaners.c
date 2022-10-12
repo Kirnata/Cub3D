@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:34:26 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/28 21:38:01 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:47:50 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
 
 int exit_cleaner(t_data *data)
 {
-    printf("name of player -%c\n", data->player->name);
-    printf("NEED A CLEANER\n");
-    exit(0);
-    return (0);
+	printf("name of player -%c\n", data->player->name);
+	printf("NEED A CLEANER\n");
+	exit(0);
+	return (0);
 }
