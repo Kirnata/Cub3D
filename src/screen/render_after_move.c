@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:54:08 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 18:10:20 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:28:38 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	check_move(t_data *data)
 {
-	//move forward if no wall in front of you
 	if (data->player->move_key == KEY_W)
 	{
 		if (data->map[(int)(data->player->x + data->raycast->dir.x * MOVE_SPEED)][(int)(data->player->y)] == '0')
@@ -24,7 +23,6 @@ void	check_move(t_data *data)
 			data->player->y += data->raycast->dir.y * MOVE_SPEED;
 			
 	}
-	//move backwards if no wall behind you
 	if (data->player->move_key == KEY_S)
 	{
 		if (data->map[(int)(data->player->x - data->raycast->dir.x * MOVE_SPEED)][(int)(data->player->y)] == '0')

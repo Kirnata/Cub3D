@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 22:00:30 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:41:58 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,22 @@ void	raycast_init(t_raycast *raycast)
 
 void	init_direction(t_point *dir, char name)
 {
-	if (name == 'W')
+	if (name == 'N')
 	{
 		dir->x = -1;
 		dir->y = 0;
 	}
-	else if (name == 'E')
+	else if (name == 'S')
 	{
 		dir->x = 1;
 		dir->y = 0;
 	}
-	if (name == 'N')
+	if (name == 'W')
 	{
 		dir->x = 0;
 		dir->y = -1;
 	}
-	if (name == 'S')
+	if (name == 'E')
 	{
 		dir->x = 0;
 		dir->y = 1;

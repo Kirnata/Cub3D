@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 17:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 22:08:32 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:35:19 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int line_render(t_data *data, int x)
 	}
 	while (y <= data->draw_limits->drawEnd)
 	{
-		//вот это вообще непонятно
 		data->raycast->texY = (int)data->raycast->texPos & (TEXHEIGHT - 1);
 		data->raycast->texPos += data->raycast->step;
 		my_mlx_pixel_put(data->image, x, y, get_pixel_color(txt,

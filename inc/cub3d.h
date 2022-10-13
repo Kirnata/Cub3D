@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/12 18:31:29 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:46:41 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
-#define ROTATE_SPEED 0.06
+#define ROTATE_SPEED 0.05
 #define MOVE_SPEED 0.1
 
 # define WIDTH 800

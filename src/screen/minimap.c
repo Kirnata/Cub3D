@@ -6,13 +6,13 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:02:27 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 21:47:21 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:50:23 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void draw_mini_map(t_data *data)
+void	draw_mini_map(t_data *data)
 {
 	int	x;
 	int	y;
@@ -23,6 +23,8 @@ void draw_mini_map(t_data *data)
 	data->minimap->minimap_y = 0;
 	while (data->map[y] != NULL)
 	{
+		x = 0;
+		data->minimap->minimap_x = 0;
 		while (data->map[y][x] != '\n' && data->map[y][x] != '\0')
 		{
 			if (data->map[y][x] != ' ')
@@ -31,32 +33,30 @@ void draw_mini_map(t_data *data)
 			data->minimap->minimap_x = x * data->minimap->minimap_scale;
 		}
 		y++;
-		x = 0;
 		data->minimap->minimap_y = data->minimap->minimap_scale * y;
-		
 	}
 }
 
-void ft_scuare(t_data *data, char c, int x, int y)
+void	ft_scuare(t_data *data, char c, int x, int y)
 {
 	if (c == '0')
 		data->minimap->colour = 0x00FF6600;
 	else
 		data->minimap->colour = 0x00FFFFFF;
-	if ((int)data->player->x == x && (int)data->player->y == y)
+	if ((int)data->player->x == y && (int)data->player->y == x)
 		data->minimap->colour = 0x0033FF00;
 	put_colour(data->minimap, data->image);
 }
 
-void    calc_map_scale(int *scale)
+void	calc_map_scale(int *scale)
 {
-	if (WIDTH < 1200 && HEIGHT < 1000)
-		*scale = 8;
-	else 
-		*scale = 10;
+	if (WIDTH > HEIGHT)
+		*scale = HEIGHT / 80;
+	else
+		*scale = WIDTH / 80;
 }
 
-void put_colour(t_minimap *minimap, t_image *image)
+void	put_colour(t_minimap *minimap, t_image *image)
 {
 	int	i;
 	int	j;
