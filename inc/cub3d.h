@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 19:13:21 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:31:38 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,17 @@
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
-#define ROTATE_SPEED 0.05
-#define MOVE_SPEED 0.1
+# define ROTATE_SPEED 0.05
+# define MOVE_SPEED 0.1
 
 # define WIDTH 800
 # define HEIGHT 500
 # define TEXWIDTH 64
 # define TEXHEIGHT 64
+
+# define COL_MINIMAP_WALL 0x00FFFFFF
+# define COL_MINIMAP_SPACE 0x00FF6600
+# define COL_MINIMAP_PL 0x0033FF00
 
 //init
 void	data_init(t_data *data);

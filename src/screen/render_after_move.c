@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:54:08 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 19:12:53 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 19:25:17 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,37 @@ void	check_move(t_data *data)
 	if (data->player->move_key == KEY_W)
 	{
 		if (data->map[(int)(data->player->x + data->raycast->dir.x \
-			* MOVE_SPEED)][(int)(data->player->y)] == '0')
+			* MOVE_SPEED)][(int)(data->player->y)] != '1')
 			data->player->x += data->raycast->dir.x * MOVE_SPEED;
 		if (data->map[(int)(data->player->x)][(int)(data->player->y
-			+ data->raycast->dir.y * MOVE_SPEED)] == '0')
+			+ data->raycast->dir.y * MOVE_SPEED)] != '1')
 			data->player->y += data->raycast->dir.y * MOVE_SPEED;
 	}
 	if (data->player->move_key == KEY_S)
 	{
 		if (data->map[(int)(data->player->x - data->raycast->dir.x \
-			* MOVE_SPEED)][(int)(data->player->y)] == '0')
+			* MOVE_SPEED)][(int)(data->player->y)] != '1')
 			data->player->x -= data->raycast->dir.x * MOVE_SPEED;
 		if (data->map[(int)(data->player->x)][(int)(data->player->y
-			- data->raycast->dir.y * MOVE_SPEED)] == '0')
+			- data->raycast->dir.y * MOVE_SPEED)] != '1')
 			data->player->y -= data->raycast->dir.y * MOVE_SPEED;
 	}
 	if (data->player->move_key == KEY_A)
 	{
 		if (data->map[(int)(data->player->x - data->raycast->plane.x \
-			* MOVE_SPEED)][(int)(data->player->y)] == '0')
+			* MOVE_SPEED)][(int)(data->player->y)] != '1')
 			data->player->x -= data->raycast->plane.x * MOVE_SPEED;
 		if (data->map[(int)(data->player->x)][(int)(data->player->y
-			- data->raycast->plane.y * MOVE_SPEED)] == '0')
+			- data->raycast->plane.y * MOVE_SPEED)] != '1')
 			data->player->y -= data->raycast->plane.y * MOVE_SPEED;
 	}
 	if (data->player->move_key == KEY_D)
 	{
 		if (data->map[(int)(data->player->x + data->raycast->plane.x \
-			* MOVE_SPEED)][(int)(data->player->y)] == '0')
+			* MOVE_SPEED)][(int)(data->player->y)] != '1')
 			data->player->x += data->raycast->plane.x * MOVE_SPEED;
 		if (data->map[(int)(data->player->x)][(int)(data->player->y
-			+ data->raycast->plane.y * MOVE_SPEED)] == '0')
+			+ data->raycast->plane.y * MOVE_SPEED)] != '1')
 			data->player->y += data->raycast->plane.y * MOVE_SPEED;
 	}
 	create_image(data);
@@ -61,7 +61,7 @@ void	check_rotate(t_data *data)
 	old_dir = data->raycast->dir.x;
 	old_plane = data->raycast->plane.x;
 	//rotate to the right
-	if (data->player->move_key == KEY_LEFT)
+	if (data->player->move_key == KEY_RIGHT)
 	{
 		//both camera direction and camera plane must be rotated
 		data->raycast->dir.x = data->raycast->dir.x * cos(-ROTATE_SPEED)
@@ -73,7 +73,7 @@ void	check_rotate(t_data *data)
 		data->raycast->plane.y = old_plane * sin(-ROTATE_SPEED)
 			+ data->raycast->plane.y * cos(-ROTATE_SPEED);
 	}
-	if (data->player->move_key == KEY_RIGHT)
+	if (data->player->move_key == KEY_LEFT)
 	{
 		//both camera direction and camera plane must be rotated
 		data->raycast->dir.x = data->raycast->dir.x * cos(ROTATE_SPEED)
