@@ -6,13 +6,12 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 19:18:46 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/22 16:00:57 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 15:21:19 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// 4 из 5
 char	*give_line_colour(char **map, char name)
 {
 	int	i;

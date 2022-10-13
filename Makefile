@@ -17,7 +17,7 @@ SCREEN		= create_image.c \
 GNL			= get_next_line.c\
 			get_next_line_utils.c
 
-PARSER		= check.c \
+PARSER		= check_files.c \
 			error.c \
 			parse.c \
 			map.c \

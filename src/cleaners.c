@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaners.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:34:26 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 21:47:50 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:33:12 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
 	free (cub_file);
 }
 
-int exit_cleaner(t_data *data)
+int	exit_cleaner(t_data *data)
 {
 	printf("name of player -%c\n", data->player->name);
 	printf("NEED A CLEANER\n");

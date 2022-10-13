@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_textures.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:36:30 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 21:58:29 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:37:54 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	open_txt(void *mlx, t_image *txt, char *path)
 	txt->img_weight = TEXWIDTH;
 	txt->img = mlx_xpm_file_to_image(mlx, path, &txt->img_height,
 			&txt->img_weight);
-	txt->addr = mlx_get_data_addr(txt->img, &txt->bits_per_pixel,
+	txt->addr = mlx_get_data_addr(txt->img, &txt->bpp,
 			&txt->line_length, &txt->endian);
 }
 

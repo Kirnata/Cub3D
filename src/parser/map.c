@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 19:28:16 by bpono             #+#    #+#             */
-/*   Updated: 2022/09/25 15:48:32 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 15:24:11 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_symbols(char **map)
 	return (0);
 }
 
-int	haha2(char **s, int i, int j)
+int	double_check(char **s, int i, int j)
 {
 	if (s[i][j] == '1' && s[i][j + 1] == ' ')
 	{
@@ -75,29 +75,29 @@ int	haha2(char **s, int i, int j)
 
 int	check_odin(char **s, int k)
 {
-	t_dick	dick;
-	int		t;
+	t_element	element;
+	int			t;
 
-	dick.i = 0;
+	element.i = 0;
 	t = 0;
-	while (dick.i < k)
+	while (element.i < k)
 	{
-		dick.j = 0;
-		while (s[dick.i][dick.j] == ' ')
-					dick.j++;
-		if (s[dick.i][dick.j] == '1')
-			dick.j++;
+		element.j = 0;
+		while (s[element.i][element.j] == ' ')
+					element.j++;
+		if (s[element.i][element.j] == '1')
+			element.j++;
 		else
 		{
-			dick.i++;
+			element.i++;
 			continue ;
 		}
-		while (s[dick.i][dick.j])
+		while (s[element.i][element.j])
 		{
-			t = t + haha2(s, dick.i, dick.j);
-			dick.j++;
+			t = t + double_check(s, element.i, element.j);
+			element.j++;
 		}
-		dick.i++;
+		element.i++;
 	}
 	return (t);
 }

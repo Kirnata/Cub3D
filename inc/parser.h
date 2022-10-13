@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:11:24 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/07 20:07:36 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:11:52 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-#include "cub3d.h"
-#include "types.h"
-
+# include "cub3d.h"
+# include "types.h"
 
 /*
 // typedef struct s_player
@@ -41,13 +40,11 @@ typedef struct s_colour
 	int	b;
 }	t_colour;
 
-
-typedef struct s_dick
+typedef struct s_element
 {
 	int	i;
 	int	j;
-	int	b;
-}	t_dick;
+}	t_element;
 
 //super+pussy_parser
 char	**parsing(char **map, t_parser *parser, t_data *data);

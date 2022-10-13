@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:00:23 by bpono             #+#    #+#             */
-/*   Updated: 2022/08/17 17:26:30 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 15:19:39 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_open_textures(t_parser *parser)
 	return (1);
 }
 
-char	*haha(int j, char **map, int i, int num_pr)
+char	*give_line(int j, char **map, int i, int num_pr)
 {
 	int		j1;
 	int		j2;
@@ -73,7 +73,7 @@ char	*give_texture_value(char s1, char s2, char **map)
 				num_pr++;
 			}
 			if (map[i][j] == s1 && map[i][j + 1] == s2)
-				return (haha(j, map, i, num_pr));
+				return (give_line(j, map, i, num_pr));
 			j++;
 		}
 		i++;

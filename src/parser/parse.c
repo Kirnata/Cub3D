@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/11 20:38:27 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:21:40 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//вернет NULL в случае пиздеца 
 char	**parsing(char **map, t_parser *parser, t_data	*data)
 {
 	char	**new_map;
@@ -59,7 +58,7 @@ char	**get_file(char *map_name)
 	fd = open(map_name, O_RDONLY);
 	if (fd <= 0)
 	{
-		ft_putstr_fd("problems with file stupid dick\n", 2);
+		ft_putstr_fd("problems with file\n", 2);
 		exit(1);
 	}
 	line = get_next_line(fd);
@@ -69,6 +68,6 @@ char	**get_file(char *map_name)
 		line = get_next_line(fd);
 	}
 	map = make_map(head, ft_lstsize(head));
-	//ft_lstclear(&head, NULL);
+	ft_lstclear(&head, NULL);
 	return (map);
 }
