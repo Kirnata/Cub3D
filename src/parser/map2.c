@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:13:31 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/12 18:10:20 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:08:40 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,11 @@ int	ft_get_len(int start, char **list)
 	int	k;
 
 	k = 0;
-	//printf("%d\n", start);
-	//printf("BOOM %p\n", list);
 	while (list[start] != NULL)
 	{
-		//printf("%p\n",list[start]);
 		k++;
 		start++;
 	}
-	////printf("%s",list[start]);
 	return (k);
 }
 
@@ -104,7 +100,7 @@ int	check_player(char **map, t_data	*data)
 			|| map[i][j] == 'E')
 			{
 				data->player->name = map[i][j];
-				data->player->x = i;//тут поменяла
+				data->player->x = i;
 				data->player->y = j;
 				count++;
 			}

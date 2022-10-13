@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 21:56:27 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:52:35 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,65 @@
 void	ray_culc(t_raycast *raycast, int x, t_player *player)
 {
 	raycast->camera.x = 2 * x / (double)WIDTH - 1;
-	raycast->rayDir.x = raycast->dir.x + raycast->plane.x * raycast->camera.x;
-	raycast->rayDir.y = raycast->dir.y + raycast->plane.y * raycast->camera.y;
-	raycast->mapX = (int)(player->x);
-	raycast->mapY = (int)(player->y);
-	raycast->deltaDist.x = (raycast->rayDir.x == 0) ? 1e30 : fabs(1 / raycast->rayDir.x);
-	raycast->deltaDist.y = (raycast->rayDir.y == 0) ? 1e30 : fabs(1 / raycast->rayDir.y);
+	raycast->ray_dir.x = raycast->dir.x + raycast->plane.x * raycast->camera.x;
+	raycast->ray_dir.y = raycast->dir.y + raycast->plane.y * raycast->camera.y;
+	raycast->map_x = (int)(player->x);
+	raycast->map_y = (int)(player->y);
+	if (raycast->ray_dir.x == 0)
+		raycast->delta_dist.x = 1e30;
+	else
+		raycast->delta_dist.x = fabs(1 / raycast->ray_dir.x);
+	if (raycast->ray_dir.y == 0)
+		raycast->delta_dist.y = 1e30;
+	else
+		raycast->delta_dist.y = fabs(1 / raycast->ray_dir.y);
 }
 
 void	dirs_to_steps(t_raycast *raycast, t_player *player)
 {
-    if(raycast->rayDir.x < 0)
-    {
-      raycast->stepX = -1;
-      raycast->sideDist.x = (player->x - raycast->mapX) * raycast->deltaDist.x;
-    }
-    else
-    {
-      raycast->stepX = 1;
-      raycast->sideDist.x = (raycast->mapX + 1.0 - player->x) * raycast->deltaDist.x;
-    }
-    if(raycast->rayDir.y < 0)
-    {
-      raycast->stepY = -1;
-      raycast->sideDist.y = (player->y - raycast->mapY) * raycast->deltaDist.y;
-    }
-    else
-    {
-      raycast->stepY = 1;
-      raycast->sideDist.y = (raycast->mapY + 1.0 - player->y) * raycast->deltaDist.y;
-    }
-}
-
-void perp_culc(t_raycast *raycast)
-{
-    if (raycast->side == 0)
-    {
-		if (raycast->sideDist.x == raycast->deltaDist.x)
-			raycast->perpWallDist= 0.9;
-		else
-			raycast->perpWallDist = raycast->sideDist.x - raycast->deltaDist.x + 0.15;
+	if (raycast->ray_dir.x < 0)
+	{
+		raycast->step_x = -1;
+		raycast->side_dist.x = (player->x - raycast->map_x)
+			* raycast->delta_dist.x;
 	}
 	else
 	{
-		if (raycast->sideDist.y == raycast->deltaDist.y)
-			raycast->perpWallDist = 0.9;
+		raycast->step_x = 1;
+		raycast->side_dist.x = (raycast->map_x + 1.0 - player->x)
+			* raycast->delta_dist.x;
+	}
+	if (raycast->ray_dir.y < 0)
+	{
+		raycast->step_y = -1;
+		raycast->side_dist.y = (player->y - raycast->map_y)
+			* raycast->delta_dist.y;
+	}
+	else
+	{
+		raycast->step_y = 1;
+		raycast->side_dist.y = (raycast->map_y + 1.0 - player->y)
+			* raycast->delta_dist.y;
+	}
+}
+
+void	perp_culc(t_raycast *raycast)
+{
+	if (raycast->side == 0)
+	{
+		if (raycast->side_dist.x == raycast->delta_dist.x)
+			raycast->perp_walldst = 0.9;
 		else
-      raycast->perpWallDist =  raycast->sideDist.y - raycast->deltaDist.y + 0.15;
+			raycast->perp_walldst = raycast->side_dist.x
+				- raycast->delta_dist.x + 0.15;
+	}
+	else
+	{
+		if (raycast->side_dist.y == raycast->delta_dist.y)
+			raycast->perp_walldst = 0.9;
+		else
+			raycast->perp_walldst = raycast->side_dist.y
+				- raycast->delta_dist.y + 0.15;
 	}
 }
 
@@ -70,21 +82,22 @@ void	dda(t_data *data)
 	int	hit;
 
 	hit = 0;
-	while(hit == 0)
+	while (hit == 0)
 	{
-		if(data->raycast->sideDist.x < data->raycast->sideDist.y)
+		if (data->raycast->side_dist.x < data->raycast->side_dist.y)
 		{
-			data->raycast->sideDist.x += data->raycast->deltaDist.x;
-			data->raycast->mapX += data->raycast->stepX;
+			data->raycast->side_dist.x += data->raycast->delta_dist.x;
+			data->raycast->map_x += data->raycast->step_x;
 			data->raycast->side = 0;
 		}
 		else
 		{
-			data->raycast->sideDist.y += data->raycast->deltaDist.y;
-			data->raycast->mapY += data->raycast->stepY;
+			data->raycast->side_dist.y += data->raycast->delta_dist.y;
+			data->raycast->map_y += data->raycast->step_y;
 			data->raycast->side = 1;
 		}
-		if (data->map[data->raycast->mapX][data->raycast->mapY] == '1')//> '0' не баг, а фича
+		//> '0' не баг, а фича
+		if (data->map[data->raycast->map_x][data->raycast->map_y] == '1')
 			hit = 1;
 	}
 	perp_culc(data->raycast);
@@ -93,26 +106,31 @@ void	dda(t_data *data)
 void	culc_txt(t_raycast *raycast, t_player *player)
 {
 	if (raycast->side == 0)
-		raycast->wallX = player->y + raycast->perpWallDist * raycast->rayDir.y;
+		raycast->wall_x = player->y + raycast->perp_walldst
+			* raycast->ray_dir.y;
 	else
-		raycast->wallX = player->x + raycast->perpWallDist * raycast->rayDir.x;
-	raycast->wallX -= floorf(raycast->wallX);
-	raycast->texX = (int)(raycast->wallX * (double)(TEXWIDTH));
-	if (raycast->side == 0 && raycast->rayDir.x > 0)
-		raycast->texX = TEXWIDTH - raycast->texX - 1;
-	if (raycast->side == 1 && raycast->rayDir.y < 0)
-		raycast->texX = TEXWIDTH - raycast->texX - 1;
+		raycast->wall_x = player->x + raycast->perp_walldst
+			* raycast->ray_dir.x;
+	raycast->wall_x -= floorf(raycast->wall_x);
+	raycast->tex_x = (int)(raycast->wall_x * (double)(TEXWIDTH));
+	if (raycast->side == 0 && raycast->ray_dir.x > 0)
+		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
+	if (raycast->side == 1 && raycast->ray_dir.y < 0)
+		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
 }
 
 void	culc_draw_limits(t_data *data)
 {
-	data->draw_limits->lineHeight = (int)(HEIGHT / data->raycast->perpWallDist);
-	data->draw_limits->drawStart = -data->draw_limits->lineHeight / 2 + HEIGHT / 2;
-	if (data->draw_limits->drawStart < 0)
-		data->draw_limits->drawStart = 0;
-	data->draw_limits->drawEnd = data->draw_limits->lineHeight / 2 + HEIGHT / 2;
-	if (data->draw_limits->drawEnd >= HEIGHT)
-		data->draw_limits->drawEnd = HEIGHT - 1;
+	data->draw_limits->line_height = (int)
+		(HEIGHT / data->raycast->perp_walldst);
+	data->draw_limits->draw_start = -data->draw_limits->line_height / 2
+		+ HEIGHT / 2;
+	if (data->draw_limits->draw_start < 0)
+		data->draw_limits->draw_start = 0;
+	data->draw_limits->draw_end = data->draw_limits->line_height / 2
+		+ HEIGHT / 2;
+	if (data->draw_limits->draw_end >= HEIGHT)
+		data->draw_limits->draw_end = HEIGHT - 1;
 }
 
 void	create_image(t_data *data)
@@ -121,7 +139,7 @@ void	create_image(t_data *data)
 
 	x = 0;
 	data->image->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	data->image->addr = mlx_get_data_addr(data->image->img, &data->image->bits_per_pixel,
+	data->image->addr = mlx_get_data_addr(data->image->img, &data->image->bpp,
 			&data->image->line_length, &data->image->endian);
 	while (x < WIDTH)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 21:44:17 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/12 20:20:07 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:38:17 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	get_pixel_color(t_image *txt, int x, int y)
 		//printf("LOL %p\n", txt);
 		return (color);
 	}
-	color = *(unsigned int *)(txt->addr + (y * txt->line_length + x * (txt->bits_per_pixel / 8)));
-	// //printf("color -> %d\n", color);
+	color = *(unsigned int *)(txt->addr + (y * txt->line_length + x * \
+		(txt->bpp / 8)));
 	return (color);
 }
 
@@ -33,6 +33,7 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = image->addr + (y * image->line_length + x * (image->bits_per_pixel / 8));
+	dst = image->addr + (y * image->line_length + x * \
+		(image->bpp / 8));
 	*(unsigned int *)dst = color;
 }

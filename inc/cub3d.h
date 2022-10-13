@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/12 18:31:29 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 16:10:48 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
-#define ROTATE_SPEED 0.06
-#define MOVE_SPEED 0.1
+# define ROTATE_SPEED 0.06
+# define MOVE_SPEED 0.1
 
 # define WIDTH 800
 # define HEIGHT 500

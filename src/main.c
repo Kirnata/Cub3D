@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/11 20:43:43 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:32:54 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int	main(int ac, char **av)
 	data->map = parsing(cub_file, &parser, data);
 	data->xpms_path = &parser;
 	game(data);
-	//free_parser(data->map, parser, data, cub_file);вот это засунуть в общий exit_cleaner
+	exit_cleaner(data);
 	return (0);
 }
