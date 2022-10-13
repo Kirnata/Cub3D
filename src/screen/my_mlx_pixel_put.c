@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 21:44:17 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 17:38:17 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 20:50:20 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ int	get_pixel_color(t_image *txt, int x, int y)
 {
 	int	color;
 
-	if (txt == NULL)
-	{
-		color = 61242140;
-		//printf("LOL %p\n", txt);
-		return (color);
-	}
 	color = *(unsigned int *)(txt->addr + (y * txt->line_length + x * \
 		(txt->bpp / 8)));
 	return (color);

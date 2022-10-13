@@ -6,11 +6,27 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:36:30 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 17:37:54 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 20:21:40 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	culc_txt(t_raycast *raycast, t_player *player)
+{
+	if (raycast->side == 0)
+		raycast->wall_x = player->y + raycast->perp_walldst
+			* raycast->ray_dir.y;
+	else
+		raycast->wall_x = player->x + raycast->perp_walldst
+			* raycast->ray_dir.x;
+	raycast->wall_x -= floorf(raycast->wall_x);
+	raycast->tex_x = (int)(raycast->wall_x * (double)(TEXWIDTH));
+	if (raycast->side == 0 && raycast->ray_dir.x > 0)
+		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
+	if (raycast->side == 1 && raycast->ray_dir.y < 0)
+		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
+}
 
 void	open_txt(void *mlx, t_image *txt, char *path)
 {

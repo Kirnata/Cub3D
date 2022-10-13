@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 17:37:13 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 21:13:23 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "cub3d.h"
 # include "parser.h"
 
-//для конкретного изображения
 typedef struct s_image {
 	void	*img;
 	char	*addr;
@@ -33,31 +32,29 @@ typedef struct s_point {
 }				t_point;
 
 typedef struct s_raycast {
-//много много всякой хуйни
-	t_point	dir;//направление игрока
-	t_point	plane;//плоскость камеры игрока(д.б. перпендикулярна dir)
-	t_point	camera;//коорд  в прост кам
+	t_point	dir;
+	t_point	plane;
+	t_point	camera;
 	t_point	ray_dir;
-	t_point	delta_dist;// длина луча от одной стор  до след стор
-	int		map_x;// в какой мы клеточке
+	t_point	delta_dist;
+	int		map_x;
 	int		map_y;
-	t_point	side_dist;//расст кот луч долж пройти от нач позиции до первой стор
-	double	perp_walldst;//длина перпендикуляра к стене от камеры
-	int		step_x;//в каком направлении делать шаг по оси x (либо +1, либо -1)
-	int		step_y;//в каком направлении делать шаг по оси y (либо +1, либо -1)
+	t_point	side_dist;
+	double	perp_walldst;
+	int		step_x;
+	int		step_y;
 	int		side;
-	double	step; // Насколько увеличить координату текстуры на пиксель экрана
-	double	wall_x;//where exactly the wall was hit в какое место мы ударились
-	int		tex_x;//x coordinate on the texture
+	double	step;
+	double	wall_x;
+	int		tex_x;
 	int		tex_y;
 	double	tex_pos;
-	// int texY;//y coordinate on the texture
 }				t_raycast;
 
 typedef struct s_player
 {
 	char		name;
-	double		x;//вектор позиции игрока
+	double		x;
 	double		y;
 	int			move_key;
 }	t_player;

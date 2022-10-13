@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:02:27 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 19:33:29 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:49:32 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	draw_mini_map(t_data *data)
 		while (data->map[y][x] != '\n' && data->map[y][x] != '\0')
 		{
 			if (data->map[y][x] != ' ')
-				ft_scuare(data, data->map[y][x], x, y);     
+				ft_scuare(data, data->map[y][x], x, y);
 			x++;
 			data->minimap->minimap_x = x * data->minimap->minimap_scale;
 		}
@@ -67,9 +67,8 @@ void	put_colour(t_minimap *minimap, t_image *image)
 	{
 		while (j <= minimap->minimap_scale)
 		{
-			// if (minimap->colour != 0)
-			////printf("%i->minimap->minimap_x + j, %i->minimap->minimap_y + i", minimap->minimap_x + j, minimap->minimap_y + i);
-			my_mlx_pixel_put(image, minimap->minimap_x + i, minimap->minimap_y + j, minimap->colour);
+			my_mlx_pixel_put(image, minimap->minimap_x + i,
+				minimap->minimap_y + j, minimap->colour);
 			j++;
 		}
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 17:52:35 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/13 20:23:22 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,68 +55,6 @@ void	dirs_to_steps(t_raycast *raycast, t_player *player)
 		raycast->side_dist.y = (raycast->map_y + 1.0 - player->y)
 			* raycast->delta_dist.y;
 	}
-}
-
-void	perp_culc(t_raycast *raycast)
-{
-	if (raycast->side == 0)
-	{
-		if (raycast->side_dist.x == raycast->delta_dist.x)
-			raycast->perp_walldst = 0.9;
-		else
-			raycast->perp_walldst = raycast->side_dist.x
-				- raycast->delta_dist.x + 0.15;
-	}
-	else
-	{
-		if (raycast->side_dist.y == raycast->delta_dist.y)
-			raycast->perp_walldst = 0.9;
-		else
-			raycast->perp_walldst = raycast->side_dist.y
-				- raycast->delta_dist.y + 0.15;
-	}
-}
-
-void	dda(t_data *data)
-{
-	int	hit;
-
-	hit = 0;
-	while (hit == 0)
-	{
-		if (data->raycast->side_dist.x < data->raycast->side_dist.y)
-		{
-			data->raycast->side_dist.x += data->raycast->delta_dist.x;
-			data->raycast->map_x += data->raycast->step_x;
-			data->raycast->side = 0;
-		}
-		else
-		{
-			data->raycast->side_dist.y += data->raycast->delta_dist.y;
-			data->raycast->map_y += data->raycast->step_y;
-			data->raycast->side = 1;
-		}
-		//> '0' не баг, а фича
-		if (data->map[data->raycast->map_x][data->raycast->map_y] == '1')
-			hit = 1;
-	}
-	perp_culc(data->raycast);
-}
-
-void	culc_txt(t_raycast *raycast, t_player *player)
-{
-	if (raycast->side == 0)
-		raycast->wall_x = player->y + raycast->perp_walldst
-			* raycast->ray_dir.y;
-	else
-		raycast->wall_x = player->x + raycast->perp_walldst
-			* raycast->ray_dir.x;
-	raycast->wall_x -= floorf(raycast->wall_x);
-	raycast->tex_x = (int)(raycast->wall_x * (double)(TEXWIDTH));
-	if (raycast->side == 0 && raycast->ray_dir.x > 0)
-		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
-	if (raycast->side == 1 && raycast->ray_dir.y < 0)
-		raycast->tex_x = TEXWIDTH - raycast->tex_x - 1;
 }
 
 void	culc_draw_limits(t_data *data)

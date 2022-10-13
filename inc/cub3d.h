@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 19:31:38 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:46:09 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 
 //init
 void	data_init(t_data *data);
+void	structure_malloc(t_data *data);
 void	raycast_init(t_raycast *raycast);
 void	draw_limits_init(t_draw_limits *draw_limits);
 void	image_init(t_image *image);
@@ -69,7 +70,8 @@ int		render_after_move(t_data *data);
 int		key_press(int keycode, t_data *data);
 int		key_release(int keycode, t_data *data);
 void	check_move(t_data *data);
-void	check_rotate(t_data *data);
+void	rotate_right(t_data *data);
+void	rotate_left(t_data *data);
 int		txt_init(t_data *data);
 void	open_txt(void *mlx, t_image *txt, char *direction);
 void	txt_loader(t_textures *txts, void *mlx, t_parser *xpms_path);

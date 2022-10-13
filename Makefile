@@ -7,12 +7,14 @@ MLX_H		= ./mlx/mlx.h
 SCREEN		= create_image.c \
 			my_mlx_pixel_put.c \
 			game.c \
-			data_init.c \
+			funcs_for_data_init.c \
 			line_render.c \
 			render_after_move.c \
 			key_hooks.c \
 			minimap.c \
 			create_textures.c   \
+			dda.c \
+			move.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c

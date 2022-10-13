@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 17:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 19:12:33 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:56:35 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,21 @@ int	line_render(t_data *data, int x)
 	t_image	*txt;
 
 	txt = choose_txt(data->raycast, data->player, data->txts);
-	y = 0;
+	y = -1;
 	data->raycast->step = (1.0f * TEXHEIGHT / data->draw_limits->line_height);
 	data->raycast->tex_pos = (double)((data->draw_limits->draw_start \
 		- HEIGHT / 2 + data->draw_limits->line_height / 2)
 			* data->raycast->step);
-	while (y < data->draw_limits->draw_start)
-	{
+	while (++y < data->draw_limits->draw_start)
 		my_mlx_pixel_put(data->image, x, y, 0x0066CCFF);//blue)
-		y++;
-	}
-	while (y <= data->draw_limits->draw_end)
+	while (++y <= data->draw_limits->draw_end)
 	{
-		//вот это вообще непонятно
 		data->raycast->tex_y = (int)data->raycast->tex_pos & (TEXHEIGHT - 1);
 		data->raycast->tex_pos += data->raycast->step;
 		my_mlx_pixel_put(data->image, x, y, get_pixel_color(txt,
 				TEXWIDTH - data->raycast->tex_x - 1, data->raycast->tex_y));
-		y++;
 	}
-	while (y < HEIGHT)
-	{
+	while (++y < HEIGHT)
 		my_mlx_pixel_put(data->image, x, y, 0x00CC9966);//земля
-		y++;
-	}
 	return (0);
 }
