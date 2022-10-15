@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 21:01:28 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:40:30 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main(int ac, char **av)
 	data->map = parsing(cub_file, &parser, data);
 	data->xpms_path = &parser;
 	game(data);
-	exit_cleaner(data);
+	cleaner(data,data->map,parser,cub_file);
 	return (0);
 }

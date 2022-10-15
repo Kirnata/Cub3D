@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 20:46:09 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:42:52 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_scuare(t_data *data, char c, int x, int y);
 void	put_colour(t_minimap *minimap, t_image *image);
 
 //utls
-int		exit_cleaner(t_data *data);
+int     exit_cleaner(t_data *data);
+void	cleaner(t_data *data, char **map, t_parser parser, char **cub_file);
 
 #endif

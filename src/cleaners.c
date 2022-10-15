@@ -6,13 +6,29 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:34:26 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 15:33:12 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:49:25 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
+int	exit_cleaner(t_data *data)
+{
+	free(data->image);
+	free(data->player);
+	free(data->draw_limits);
+	free(data->raycast);
+	free(data->minimap);
+	free(data->txts->txt_east);
+	free(data->txts->txt_west);
+	free(data->txts->txt_north);
+	free(data->txts->txt_south);
+	free(data->txts);
+	exit(0);
+	return (0);
+}
+
+void	cleaner(t_data *data, char **map, t_parser parser, char **cub_file)
 {
 	int	i;
 
@@ -30,7 +46,6 @@ void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
 	free(parser.south);
 	free(parser.west);
 	free(parser.east);
-	free(data);
 	i = 0;
 	while (cub_file[i])
 	{
@@ -38,12 +53,6 @@ void	free_parser(char **map, t_parser parser, t_data *data, char **cub_file)
 		i++;
 	}
 	free (cub_file);
+	exit_cleaner(data);
 }
 
-int	exit_cleaner(t_data *data)
-{
-	printf("name of player -%c\n", data->player->name);
-	printf("NEED A CLEANER\n");
-	exit(0);
-	return (0);
-}
