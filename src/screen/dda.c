@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 20:22:32 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 20:23:59 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/14 21:56:48 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	perp_culc(t_raycast *raycast)
 			raycast->perp_walldst = 0.9;
 		else
 			raycast->perp_walldst = raycast->side_dist.x
-				- raycast->delta_dist.x + 0.15;
+				- raycast->delta_dist.x + 0.05;
 	}
 	else
 	{
@@ -53,6 +53,6 @@ void	perp_culc(t_raycast *raycast)
 			raycast->perp_walldst = 0.9;
 		else
 			raycast->perp_walldst = raycast->side_dist.y
-				- raycast->delta_dist.y + 0.15;
+				- raycast->delta_dist.y + 0.05;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:19:12 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 21:13:23 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/14 22:57:31 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_image {
 	int		line_length;
 	int		endian;
 	int		img_height;
-	int		img_weight;
+	int		img_width;
 }				t_image;
 
 typedef struct s_point {

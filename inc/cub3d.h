@@ -6,7 +6,7 @@
 /*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/15 15:42:52 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 17:13:27 by bpono            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "mlx.h"
 # include "parser.h"
 # include "types.h"
+# include "errors_messages.h"
 # include <math.h>
 # include "get_next_line.h"
 # include "../libft/libft.h"
@@ -35,7 +36,7 @@
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 
-# define ROTATE_SPEED 0.05
+# define ROTATE_SPEED 0.01
 # define MOVE_SPEED 0.1
 
 # define WIDTH 800
@@ -64,7 +65,7 @@ void	dda(t_data *data);
 void	culc_txt(t_raycast *raycast, t_player *player);
 void	culc_draw_limits(t_data *data);
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
-int		line_render(t_data *data, int x);
+void	line_render(t_data *data, int x);
 int		game(t_data *data);
 int		render_after_move(t_data *data);
 int		key_press(int keycode, t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:33:15 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 20:48:39 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:52:29 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ void	structure_malloc(t_data *data)
 {
 	data->raycast = (t_raycast *)malloc(sizeof(t_raycast));
 	if (!data->raycast)
-		ft_error("fatal error: malloc\n");
+		ft_error(ERR_MALLOC);
 	data->image = (t_image *)malloc(sizeof(t_image));
 	if (!data->image)
-		ft_error("fatal error: malloc\n");
+		ft_error(ERR_MALLOC);
 	data->draw_limits = (t_draw_limits *)malloc(sizeof(t_draw_limits));
 	if (!data->draw_limits)
-		ft_error("fatal error: malloc\n");
+		ft_error(ERR_MALLOC);
 	data->minimap = (t_minimap *)malloc(sizeof(t_minimap));
 	if (!data->minimap)
-		ft_error("fatal error: malloc\n");
+		ft_error(ERR_MALLOC);
 	data->txts = (t_textures *)malloc(sizeof(t_textures));
 	if (!data->txts)
-		ft_error("fatal error: malloc\n");
+		ft_error(ERR_MALLOC);
 }
 
 void	data_init(t_data *data)
@@ -37,7 +37,11 @@ void	data_init(t_data *data)
 	data->mlx = NULL;
 	data->win = NULL;
 	data->mlx = mlx_init();
+	if (!data->mlx)
+		ft_error(ERR__MLX_INIT);
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3D");
+	if (!data->win)
+		ft_error(ERR_WIN_INIT);
 	init_direction(&(data->raycast->dir), data->player->name);
 	raycast_init(data->raycast);
 	image_init(data->image);
