@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 19:28:16 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 15:24:11 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:30:24 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ char	**get_map(int start, char **list)
 	i = 0;
 	new_map = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!new_map)
-		ft_error("malloc problems\n");
+		ft_error(ERR_MALLOC);
 	while (list[start])
 	{
 		new_map[i] = ft_strdup(list[start]);
 		if (!new_map[i])
-			ft_error("malloc problems\n");
+			ft_error(ERR_MALLOC);
 		start++;
 		i++;
 	}

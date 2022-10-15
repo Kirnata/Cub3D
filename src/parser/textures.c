@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:32:29 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 15:11:41 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:41:06 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	check_textures(char **map, t_parser *parser)
 	len = ft_get_len(0, map);
 	m = check_only_4textures(map, len);
 	if (m == 1)
-		ft_error("textures problems\n");
+		ft_error(ERR_TXT);
 	m = save_textures(map, parser);
 	if (m == 1)
-		ft_error("textures problems\n");
+		ft_error(ERR_TXT);
 	m = check_open_textures(parser);
 	if (m == 1)
-		ft_error("textures problems\n");
+		ft_error(ERR_TXT);
 	return (m);
 }
