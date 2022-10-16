@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 17:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/14 22:54:56 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:14:33 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	line_render(t_data *data, int x)
 		data->raycast->tex_y = (int)data->raycast->tex_pos & (TEXHEIGHT - 1);
 		data->raycast->tex_pos += data->raycast->step;
 		my_mlx_pixel_put(data->image, x, y, get_pixel_color(txt,
-				TEXWIDTH - data->raycast->tex_x - 1, data->raycast->tex_y));
+				data->raycast->tex_x, data->raycast->tex_y));
 		}
 		else
 			my_mlx_pixel_put(data->image, x, y, data->xpms_path->floor);

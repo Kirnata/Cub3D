@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:56:09 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 20:34:57 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:33:16 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ void	check_move(t_data *data)
 		move_a(data);
 	else if (data->player->move_key == KEY_D)
 		move_d(data);
-	create_image(data);
+	//create_image(data);
 }

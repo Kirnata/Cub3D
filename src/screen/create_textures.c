@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:36:30 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/15 15:49:00 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/16 20:53:44 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	culc_txt(t_raycast *raycast, t_player *player)
 
 void	open_txt(void *mlx, t_image *txt, char *path)
 {
-	int	fd;
-
 	txt->img_height = TEXHEIGHT;
 	txt->img_width = TEXWIDTH;
 	txt->img = mlx_xpm_file_to_image(mlx, path, &txt->img_height,

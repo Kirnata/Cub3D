@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:50:55 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/02 19:43:47 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:36:41 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int	key_press(int keycode, t_data *data)
 		data->player->move_key = KEY_A;
 	if (keycode == KEY_D)
 		data->player->move_key = KEY_D;
+	if (keycode == MAP_PLUS)
+		data->player->move_key = MAP_PLUS;
+	if (keycode == MAP_MINUS)
+		data->player->move_key = MAP_MINUS;
 	if (keycode == ESC)
 		data->player->move_key = ESC;
 	return (0);

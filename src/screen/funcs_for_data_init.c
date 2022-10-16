@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/14 22:57:31 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:33:25 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_limits_init(t_draw_limits *draw_limits)
 
 void	raycast_init(t_raycast *raycast)
 {
-	raycast->plane.x = -raycast->dir.y * 0.66;
+	raycast->plane.x = raycast->dir.y * 0.66;
 	raycast->plane.y = -raycast->dir.x * 0.66;
 	raycast->camera.x = 0;
 	raycast->camera.y = 0;
@@ -56,22 +56,22 @@ void	raycast_init(t_raycast *raycast)
 
 void	init_direction(t_point *dir, char name)
 {
-	if (name == 'N')
+	if (name == 'W')
 	{
 		dir->x = -1;
 		dir->y = 0;
 	}
-	else if (name == 'S')
+	else if (name == 'E')
 	{
 		dir->x = 1;
 		dir->y = 0;
 	}
-	if (name == 'W')
+	if (name == 'N')
 	{
 		dir->x = 0;
 		dir->y = -1;
 	}
-	if (name == 'E')
+	if (name == 'S')
 	{
 		dir->x = 0;
 		dir->y = 1;
@@ -82,6 +82,6 @@ void	minimap_init(t_minimap *minimap)
 {
 	minimap->minimap_x = 0;
 	minimap->minimap_y = 0;
-	minimap->colour = 0x0066CCFF;
+	minimap->colour = 0;
 	calc_map_scale(&(minimap->minimap_scale));
 }

@@ -15,6 +15,7 @@ SCREEN		= create_image.c \
 			create_textures.c   \
 			dda.c \
 			move.c \
+			map_scaler.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c

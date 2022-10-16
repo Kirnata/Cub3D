@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:02:27 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 20:49:32 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/16 21:38:00 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	ft_scuare(t_data *data, char c, int x, int y)
 void	calc_map_scale(int *scale)
 {
 	if (WIDTH > HEIGHT)
-		*scale = HEIGHT / 80;
+		*scale = HEIGHT / 60;
 	else
-		*scale = WIDTH / 80;
+		*scale = WIDTH / 60;
 }
 
 void	put_colour(t_minimap *minimap, t_image *image)
