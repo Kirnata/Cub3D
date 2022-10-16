@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 18:00:23 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 15:19:39 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:42:48 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	check_open_textures(t_parser *parser)
 	f4 = open(parser->east, O_RDONLY);
 	if (f1 < 0 || f2 < 0 || f3 < 0 || f4 < 0)
 		return (1);
+	close(f1);
+	close(f2);
+	close(f3);
+	close(f4);
 	if (is_xpmfile(parser->north) || is_xpmfile(parser->north) \
 	|| is_xpmfile(parser->north) || is_xpmfile(parser->north))
 		return (0);

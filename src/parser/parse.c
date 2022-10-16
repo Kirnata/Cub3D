@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:28:41 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/13 15:21:40 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/15 15:37:50 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	**parsing(char **map, t_parser *parser, t_data	*data)
 	l = check_textures(map, parser);
 	l = check_colours(map, parser);
 	if (l == 1)
-		ft_error("colours problems\n");
+		ft_error(ERR_COLOUR);
 	new_map = check_map(map, data);
 	if (!new_map)
-		ft_error("map problems\n");
+		ft_error(ERR_MAP);
 	return (new_map);
 }
 
@@ -34,7 +34,7 @@ char	**make_map(t_list *head, int size)
 
 	map = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!map)
-		ft_error("malloc problems");
+		ft_error(ERR_MALLOC);
 	ft_bzero(map, sizeof(char *) * (size + 1));
 	i = 0;
 	while (head != NULL)
@@ -67,6 +67,7 @@ char	**get_file(char *map_name)
 		ft_lstadd_back(&head, ft_lstnew(line));
 		line = get_next_line(fd);
 	}
+	close(fd);
 	map = make_map(head, ft_lstsize(head));
 	ft_lstclear(&head, NULL);
 	return (map);

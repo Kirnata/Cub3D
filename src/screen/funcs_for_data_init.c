@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcs_for_data_init.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 20:53:19 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/14 22:57:31 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	image_init(t_image *image)
 	image->endian = 0;
 	image->line_length = 0;
 	image->img_height = 0;
-	image->img_weight = 0;
+	image->img_width = 0;
 }
 
 void	draw_limits_init(t_draw_limits *draw_limits)
