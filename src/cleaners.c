@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaners.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:34:26 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/15 15:49:25 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/18 19:43:38 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ void	cleaner(t_data *data, char **map, t_parser parser, char **cub_file)
 	free (cub_file);
 	exit_cleaner(data);
 }
-

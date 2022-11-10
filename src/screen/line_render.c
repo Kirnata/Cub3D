@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 17:28:09 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/16 21:14:33 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:49:41 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_image	*choose_txt(t_raycast *raycast, t_player *player, t_textures *txts)
 	else if (raycast->side == 1 && raycast->map_y >= player->y)
 		txt = txts->txt_south;
 	else
-		ft_error("ERROR: can't choose texture in \"choose_txt\"");
+		ft_error(ERR_CHOOSE_TXT);
 	return (txt);
 }
 
@@ -46,10 +46,11 @@ void	line_render(t_data *data, int x)
 			my_mlx_pixel_put(data->image, x, y, data->xpms_path->ceilling);
 		else if (y <= data->draw_limits->draw_end)
 		{
-		data->raycast->tex_y = (int)data->raycast->tex_pos & (TEXHEIGHT - 1);
-		data->raycast->tex_pos += data->raycast->step;
-		my_mlx_pixel_put(data->image, x, y, get_pixel_color(txt,
-				data->raycast->tex_x, data->raycast->tex_y));
+			data->raycast->tex_y = (int)data->raycast->tex_pos
+				& (TEXHEIGHT - 1);
+			data->raycast->tex_pos += data->raycast->step;
+			my_mlx_pixel_put(data->image, x, y, get_pixel_color(txt,
+					data->raycast->tex_x, data->raycast->tex_y));
 		}
 		else
 			my_mlx_pixel_put(data->image, x, y, data->xpms_path->floor);

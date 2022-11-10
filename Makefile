@@ -15,7 +15,6 @@ SCREEN		= create_image.c \
 			create_textures.c   \
 			dda.c \
 			move.c \
-			map_scaler.c \
 
 GNL			= get_next_line.c\
 			get_next_line_utils.c
@@ -43,8 +42,7 @@ OBJ_D		= $(SRCS:.c=.d)
 
 CC			= gcc
 
-# CFLAGS		= -Wall -Wextra -Werror -O2 -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
-CFLAGS		= -Wall -Wextra -Werror -MMD -Iinc -Ilibft -Imlx -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -MMD -Iinc -Ilibft -Imlx
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 

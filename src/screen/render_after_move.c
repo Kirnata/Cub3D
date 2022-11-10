@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:54:08 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/16 21:54:02 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:51:43 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	rotate_left(t_data *data)
 		- data->raycast->plane.y * sin(ROTATE_SPEED);
 	data->raycast->plane.y = old_plane * sin(ROTATE_SPEED)
 		+ data->raycast->plane.y * cos(ROTATE_SPEED);
-	//create_image(data);
 }
 
 void	rotate_right(t_data *data)
@@ -45,7 +44,6 @@ void	rotate_right(t_data *data)
 		- data->raycast->plane.y * sin(-ROTATE_SPEED);
 	data->raycast->plane.y = old_plane * sin(-ROTATE_SPEED)
 		+ data->raycast->plane.y * cos(-ROTATE_SPEED);
-	//create_image(data);
 }
 
 int	render_after_move(t_data *data)
@@ -57,8 +55,6 @@ int	render_after_move(t_data *data)
 		rotate_right(data);
 	else if (data->player->move_key == KEY_LEFT)
 		rotate_left(data);
-	else if (data->player->move_key == MAP_MINUS || data->player->move_key == MAP_PLUS)
-		map_scaler(data->minimap, data->player->move_key);
 	if (data->player->move_key == ESC)
 		exit_cleaner(data);
 	create_image(data);

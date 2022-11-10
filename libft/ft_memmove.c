@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:03:11 by ptopping          #+#    #+#             */
-/*   Updated: 2022/09/21 16:31:20 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/18 21:28:46 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memmove(void *dest, const void *source, size_t size)
 	if (dest > source)
 	{	
 		i = size - 1;
-		while ( i < size)
+		while (i < size)
 		{
 			*(unsigned char *)(dest + i) = *(unsigned char *)(source + i);
 			i--;

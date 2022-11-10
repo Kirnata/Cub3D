@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_image.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:58:53 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 20:23:22 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/18 18:25:59 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ray_culc(t_raycast *raycast, int x, t_player *player)
 {
 	raycast->camera.x = 2 * x / (double)WIDTH - 1;
 	raycast->ray_dir.x = raycast->dir.x + raycast->plane.x * raycast->camera.x;
-	raycast->ray_dir.y = raycast->dir.y + raycast->plane.y * raycast->camera.y;
+	raycast->ray_dir.y = raycast->dir.y + raycast->plane.y * raycast->camera.x;
 	raycast->map_x = (int)(player->x);
 	raycast->map_y = (int)(player->y);
 	if (raycast->ray_dir.x == 0)

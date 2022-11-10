@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 20:02:27 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/16 21:38:00 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:32:54 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	draw_mini_map(t_data *data)
 
 void	ft_scuare(t_data *data, char c, int x, int y)
 {
-	if (c == '1')
+	if (c != '0')
 		data->minimap->colour = COL_MINIMAP_WALL;
 	else
 		data->minimap->colour = COL_MINIMAP_SPACE;

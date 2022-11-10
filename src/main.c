@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:56:36 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/15 17:13:24 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/18 19:46:12 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//close если не смогли открыть
-//ошибка проверки close the door
-//перетянуть цвета с парсера
-//возможно сделать ебанистическое небо
-
-void create_data(t_data **data)
+void	create_data(t_data **data)
 {
 	*data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
@@ -42,6 +37,6 @@ int	main(int ac, char **av)
 	data->map = parsing(cub_file, &parser, data);
 	data->xpms_path = &parser;
 	game(data);
-	cleaner(data,data->map,parser,cub_file);
+	cleaner(data, data->map, parser, cub_file);
 	return (0);
 }

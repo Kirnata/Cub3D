@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpono <bpono@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:11:24 by ptopping          #+#    #+#             */
-/*   Updated: 2022/10/13 16:11:52 by bpono            ###   ########.fr       */
+/*   Updated: 2022/10/18 22:30:48 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,6 @@
 # define PARSER_H
 # include "cub3d.h"
 # include "types.h"
-
-/*
-// typedef struct s_player
-// {
-// 	char	name;
-// 	int		x;
-// 	int		y;
-// }	t_player;
-*/
-// typedef struct s_parser
-// {
-// 	char		*north;
-// 	char		*south;
-// 	char		*west;
-// 	char		*east;
-// 	int			floor;
-// 	int			ceilling;
-// }	t_parser;
 
 typedef struct s_colour
 {

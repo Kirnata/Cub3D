@@ -6,7 +6,7 @@
 /*   By: ptopping <ptopping@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 20:53:40 by bpono             #+#    #+#             */
-/*   Updated: 2022/10/16 21:54:37 by ptopping         ###   ########.fr       */
+/*   Updated: 2022/10/18 21:53:19 by ptopping         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define MAP_PLUS 24
 # define MAP_MINUS 27
 
-# define ROTATE_SPEED 0.01
-# define MOVE_SPEED 0.1
+# define ROTATE_SPEED 0.05
+# define MOVE_SPEED 0.09
 
 # define WIDTH 800
 # define HEIGHT 500
@@ -85,10 +85,10 @@ void	draw_mini_map(t_data *data);
 void	calc_map_scale(int *scale);
 void	ft_scuare(t_data *data, char c, int x, int y);
 void	put_colour(t_minimap *minimap, t_image *image);
-void    map_scaler(t_minimap *minimap, int move_key);
+void	map_scaler(t_minimap *minimap, int move_key);
 
 //utls
-int     exit_cleaner(t_data *data);
+int		exit_cleaner(t_data *data);
 void	cleaner(t_data *data, char **map, t_parser parser, char **cub_file);
 
 #endif
