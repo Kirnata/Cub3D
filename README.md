@@ -8,10 +8,10 @@ This project is written in ``c`` using ``mini-libx`` Library.
 This old library has a little builtin-funcs that's can make my project show on the graphics. 
 
 ## Preview 1
-<img src="https://github.com/Kirnata/imgs/preview_1.img" width=700 height=600/>
+<img src="https://github.com/Kirnata/Cub3D/blob/main/imgs/preview1.png" width=700 height=500/>
 
 ## Preview 2
-<img src="https://github.com/Kirnata/imgs/preview_2.img" width=700 height=400/>
+<img src="https://github.com/Kirnata/Cub3D/blob/main/imgs/preview2.png" width=700 height=500/>
 </a>
 
 ## Commands
